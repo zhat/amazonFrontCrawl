@@ -1,0 +1,8 @@
+1505224054044	geckodriver	INFO	Listening on 127.0.0.1:52814
+1505224055007	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.W8vgyEXRLvM5
+1505224055007	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox
+1505224055033	geckodriver::marionette	INFO	Connecting to Marionette on localhost:45339
+
+(firefox:29417): GnomeUI-WARNING **: While connecting to session manager:
+None of the authentication protocols specified are supported.
+JavaScript error: , line 0: uncaught exception: [object Object]
