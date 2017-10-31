@@ -281,15 +281,15 @@ class ProductlistingSpider(scrapy.Spider):
                 percent_data_lst = percent_data.extract()
                 for i, p in enumerate(percent_data_lst):
                     if i == 1:
-                        percent_5_star = p.encode('utf-8')
+                        percent_5_star = p.encode('utf-8')[:-1]
                     elif i == 3:
-                        percent_4_star = p.encode('utf-8')
+                        percent_4_star = p.encode('utf-8')[:-1]
                     elif i == 5:
-                        percent_3_star = p.encode('utf-8')
+                        percent_3_star = p.encode('utf-8')[:-1]
                     elif i == 7:
-                        percent_2_star = p.encode('utf-8')
+                        percent_2_star = p.encode('utf-8')[:-1]
                     elif i == 9:
-                        percent_1_star = p.encode('utf-8')
+                        percent_1_star = p.encode('utf-8')[:-1]
                 product_baseinfo_item["percent_5_star"] = percent_5_star
                 product_baseinfo_item["percent_4_star"] = percent_4_star
                 product_baseinfo_item["percent_3_star"] = percent_3_star
@@ -557,9 +557,9 @@ class ProductlistingSpider(scrapy.Spider):
 
                     try:
                         votes_ = r.xpath(".//span[@data-hook='helpful-vote-statement']/text()")
-                        if (len(votes_)) > 0:
+                        if votes_:
                             votes_str = votes_.extract()[0].encode('utf-8')
-                            top_review["votes"] = re.sub("\D", "", votes_str)
+                            top_review["votes"] = re.sub("\D", "", votes_str) if re.sub("\D", "", votes_str) else 0
                         else:
                             top_review["votes"] = 0
                     except Exception as e:
@@ -630,9 +630,9 @@ class ProductlistingSpider(scrapy.Spider):
 
                     try:
                         votes_ = r.xpath(".//span[@data-hook='helpful-vote-statement']/text()")
-                        if (len(votes_)) > 0:
+                        if votes_:
                             votes_str = votes_.extract()[0].encode('utf-8')
-                            recent_review["votes"] = re.sub("\D", "", votes_str)
+                            recent_review["votes"] = re.sub("\D", "", votes_str) if re.sub("\D", "", votes_str) else 0
                         else:
                             recent_review["votes"] = 0
                     except Exception as e:

@@ -4,9 +4,9 @@ from scrapy import cmdline
 
 # cmdline.execute("scrapy crawlall ".split())
 
-cmdline.execute("scrapy crawl getShopProducts".split()) # run test result : success
+#cmdline.execute("scrapy crawl getShopProducts".split()) # run test result : success
 
-# cmdline.execute("scrapy crawl ProductReviewSpider".split()) # run test result : success
+cmdline.execute("scrapy crawl ProductReviewSpider".split()) # run test result : success
 
 # cmdline.execute("scrapy crawl productListing".split()) # run test result : success
 
@@ -20,5 +20,5 @@ cmdline.execute("scrapy crawl getShopProducts".split()) # run test result : succ
 
 # cmdline.execute("scrapy crawl OffersCatchSpider".split())
 
-
+# cmdline.execute("scrapy crawl feedback".split())
 

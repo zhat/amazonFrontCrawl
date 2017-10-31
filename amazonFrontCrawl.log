@@ -1,0 +1,1081 @@
+2017-10-31 11:42:24 [twisted] CRITICAL: Unhandled error in Deferred:
+2017-10-31 11:42:24 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/crawler.py", line 95, in crawl
+    six.reraise(*exc_info)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/crawler.py", line 77, in crawl
+    self.engine = self._create_engine()
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/crawler.py", line 102, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/core/engine.py", line 70, in __init__
+    self.scraper = Scraper(crawler)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/core/scraper.py", line 71, in __init__
+    self.itemproc = itemproc_cls.from_crawler(crawler)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/middleware.py", line 58, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/middleware.py", line 38, in from_settings
+    mw = mwcls.from_settings(settings)
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/pipelines.py", line 849, in from_settings
+    cursorclass=pymysql.cursors.DictCursor,
+NameError: global name 'pymysql' is not defined
+2017-10-31 12:03:43 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:03:43 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:03:44 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:03:46 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:03:46 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:03:46 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:03:51 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:03:51 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:03:52 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:03:57 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:03:57 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:06 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:06 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:08 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:10 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:12 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074ZD427Y. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:04:12 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:13 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:15 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:16 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:16 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:19 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:20 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:20 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:23 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:25 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:26 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:26 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:26 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:26 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:28 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:30 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:30 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:34 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:35 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:35 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:36 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:40 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:40 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:42 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:42 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:42 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:43 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:43 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:46 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:47 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:48 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:50 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:50 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:50 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074VZ2GJW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:04:51 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:53 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:04:53 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:04:56 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:00 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 12:05:02 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:03 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:05 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:08 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:05:08 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:10 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:11 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:05:11 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:18 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 12:05:18 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 12:05:50 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B075FTM3C4/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=all_reviews&pageNumber=1. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:06:34 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B0751T7DLY/ref=cm_cr_arp_d_paging_btm_2?ie=UTF8&pageNumber=2&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:09:30 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074S33NDB/ref=cm_cr_arp_d_paging_btm_6?ie=UTF8&pageNumber=6&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:09:59 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B0751T7DLY/ref=cm_cr_arp_d_paging_btm_8?ie=UTF8&pageNumber=8&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:11:39 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B0751T7DLY/ref=cm_cr_arp_d_paging_btm_11?ie=UTF8&pageNumber=11&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:13:30 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074THH5Q2/ref=cm_cr_arp_d_paging_btm_6?ie=UTF8&pageNumber=6&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:13:58 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074CR3TWB/ref=cm_cr_arp_d_paging_btm_9?ie=UTF8&pageNumber=9&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:14:05 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074QKS8RK/ref=cm_cr_arp_d_paging_btm_26?ie=UTF8&pageNumber=26&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:15:07 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B075XL1X5P/ref=cm_cr_arp_d_paging_btm_23?ie=UTF8&pageNumber=23&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:15:43 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B075XL1X5P/ref=cm_cr_arp_d_paging_btm_33?ie=UTF8&pageNumber=33&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 12:16:52 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B075XL1X5P/ref=cm_cr_arp_d_paging_btm_44?ie=UTF8&pageNumber=44&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:13:59 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:02 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:03 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:06 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:10 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:10 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:10 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:13 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074M4VBLC. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:14:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:17 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:21 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:21 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:24 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:26 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:27 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:30 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:30 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:31 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075D7ST6F. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:14:37 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:38 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075FTM3C4. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:14:39 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:39 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:40 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:44 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:44 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:45 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:46 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074M4VBLC. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:14:47 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:53 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:53 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:53 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:54 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:55 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:55 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B073DR5ZPQ. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:14:56 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:14:56 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:58 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:14:59 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:07 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:09 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:15:09 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:10 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:12 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:15:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:15:16 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:15:18 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B07447TGC5. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:15:20 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:15:21 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:15:21 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:15:26 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075MD3VZC. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:15:29 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:15:29 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:34 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:35 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0753GRNQZ. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:15:36 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074CR3TWB. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:15:39 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075XL1X5P. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:15:42 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074V7NGX9. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:15:44 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:15:44 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:15:46 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075XJY5MM. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:15:49 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B06XJ1Z7HV. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:15:50 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:15:50 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:15:57 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075FL63DW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:16:07 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:16:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:16:12 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074V7NGX9. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:16:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:16:15 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:16:26 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B06XJ1Z7HV. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:16:40 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:16:55 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:16:55 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:16:57 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:16:57 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:16:59 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:01 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:01 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:06 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:08 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:09 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:12 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:12 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:15 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:20 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:20 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:21 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:22 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:23 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0744G7XRK. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:17:24 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:26 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:26 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:29 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:29 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:31 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:34 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:35 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:37 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:39 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:42 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074C125TN. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:17:45 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075DWS7YT. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:17:45 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:46 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:47 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:50 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:50 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:50 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:50 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:51 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B073DR5ZPQ. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:17:53 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:53 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:17:54 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:55 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:17:58 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:00 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:00 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:02 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:02 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:02 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:02 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:06 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:06 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:11 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:11 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:18:14 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:15 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074SC9NH1. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:18:22 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:22 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:18:22 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:27 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:30 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074THH5Q2. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:18:30 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:31 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:31 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:34 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:34 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:34 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:36 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:37 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:39 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:39 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:40 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:40 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:40 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:40 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:47 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:47 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:47 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:47 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:47 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:49 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:52 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:52 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:52 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:56 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:58 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:58 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:58 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:18:58 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:18:58 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:01 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:02 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:03 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:03 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:03 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:05 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:05 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:05 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:05 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:07 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:10 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:10 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:10 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:12 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:12 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:14 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0746H1KXW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:19:15 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:16 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:16 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:16 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:18 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:18 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:19 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:19 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:19 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:21 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:22 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:22 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:22 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:22 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:23 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:25 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:25 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:25 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:25 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01MSW47O4. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:19:25 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:26 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:27 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:27 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:29 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:30 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:30 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:31 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:32 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:33 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:35 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0751T7DLY. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:19:35 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:35 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:35 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:37 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:38 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:38 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:39 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074DWRY1T. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:19:39 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:39 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:40 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074KJ1N3D. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:19:40 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:43 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:43 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:44 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:45 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:45 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:19:45 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:19:45 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:45 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:45 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:46 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:46 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:47 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:48 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:48 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:19:48 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:19:48 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:48 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:48 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:50 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075DWS7YT. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:19:51 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:19:51 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:51 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:51 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:52 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:52 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:53 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:53 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:54 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0764CDY7Q. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:19:55 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:55 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:55 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:55 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:19:55 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:19:55 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:55 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:57 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:58 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:59 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:19:59 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:19:59 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:19:59 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:19:59 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:00 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:02 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:02 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:02 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:02 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:03 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:03 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:03 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:03 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:03 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:03 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:05 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074KJ1N3D. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:20:05 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:05 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:05 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:05 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:05 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:05 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:06 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:07 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:07 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:07 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:07 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:07 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:07 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:08 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074DWRY1T. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:20:09 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:09 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:09 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:09 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:11 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:16 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:16 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:20:17 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:17 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:19 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:22 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075MD3VZC. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:20:22 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:24 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:27 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:27 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:20:27 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:31 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:32 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:33 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:20:47 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:47 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:20:47 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:21:00 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075MD3VZC. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:21:16 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075MD3VZC. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:21:16 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.amazon.com/dp/B075MD3VZC>: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>, <twisted.python.failure.Failure twisted.web.http._DataLoss: Chunked decoder in 'CHUNK_LENGTH' state, still expecting more data to get to 'FINISHED' state.>]
+2017-10-31 14:24:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:14 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:14 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:14 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:20 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:24 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:24 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:26 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:27 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:27 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:31 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:31 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:33 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:35 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:36 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:37 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:37 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:38 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:41 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:43 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:44 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:47 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:50 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:51 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:57 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:57 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:57 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:24:58 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:59 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:24:59 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B07478R15S. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:24:59 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:06 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:06 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:12 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:13 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:13 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:15 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:16 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:19 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:19 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:19 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:19 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:23 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:28 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:31 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:33 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:35 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:40 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:41 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:41 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:25:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:41 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0722QQMC5. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:25:44 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:45 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:45 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:25:46 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074THH5Q2. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:25:47 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:47 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:25:48 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074CR3TWB. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:25:56 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:56 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:25:56 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:28:30 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:38:50 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:38:50 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:38:52 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:38:54 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:38:54 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:38:56 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:38:57 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:02 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:03 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:03 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:05 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:06 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:06 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:10 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:10 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:14 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:18 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:19 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:19 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:19 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:21 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:21 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:21 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074QKS8RK. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:39:22 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:22 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:24 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075FTM3C4. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:39:28 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:28 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:29 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:30 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074N1YW3G. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:39:31 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:32 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:33 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:34 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:37 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:42 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:42 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:44 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:44 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:45 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:48 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:48 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:48 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:52 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0749H6ZVV. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:39:53 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:53 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:55 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:39:55 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:39:56 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:40:00 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:40:00 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:40:00 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:40:05 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:40:07 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:40:08 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:40:08 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:40:11 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:40:17 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:40:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:40:17 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:40:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:40:20 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:40:20 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:40:22 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:40:23 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:40:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:40:32 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:06 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:06 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:09 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:11 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:12 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:15 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:18 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:18 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0746H1KXW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:41:26 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:26 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:31 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:31 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:33 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:33 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:35 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:35 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0749GVTS6. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:41:36 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:38 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:45 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075L7B994. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:41:45 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:46 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:48 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:48 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:53 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:53 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:53 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:54 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:55 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:55 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:58 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:41:58 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:41:59 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:00 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:02 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:02 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:07 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:07 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:10 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:11 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:13 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:13 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:16 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:16 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:18 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:18 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:21 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:21 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:26 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:42:29 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:30 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:31 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:33 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:36 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:36 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:37 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:38 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:42:41 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:43 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:42:43 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:44:36 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:44:54 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:44:57 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:44:57 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:45:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:03 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:03 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:06 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:06 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:06 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:06 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:10 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:13 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:17 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0746H1KXW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:46:22 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:23 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:23 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:26 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:27 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:27 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:27 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:28 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:30 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0749GVTS6. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:46:31 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:31 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:32 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:32 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:33 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:33 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:33 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:37 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:37 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:38 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074C6WF19. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:46:38 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:41 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:42 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:42 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:43 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074KJ1N3D. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:46:46 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:46 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:46 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:46 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:46 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:48 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:48 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:48 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:50 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074C125TN. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:46:51 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:53 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0756YYTCX. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:46:54 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:55 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:56 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:56 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:57 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:57 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:58 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:58 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:59 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:46:59 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:59 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:46:59 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:01 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:01 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:02 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:02 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:02 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:02 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:04 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074G3WRLX. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:06 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075F6NTKP. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:08 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:08 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:09 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:10 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:10 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:11 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:11 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:12 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:12 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:13 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:13 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:14 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:14 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:15 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B073DR5ZPQ. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:16 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:16 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:17 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:18 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:18 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:19 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:21 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:21 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:23 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:47:24 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:24 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:25 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:25 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:25 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:26 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0764CDY7Q. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:27 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:27 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:27 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:29 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074VZ2GJW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:29 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:32 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:33 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074RD5Z47. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:34 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075F6NTKP. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:35 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:35 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:47:35 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:35 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:36 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:36 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:37 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:37 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0746DZ6FW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:37 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:37 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:38 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:38 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:47:40 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:41 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0764CDY7Q. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:41 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:42 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074PQQ43Q. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:42 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:44 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:45 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:45 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:46 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:49 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:49 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:49 [root] ERROR: //*[@id='sp_detail']/@data-a-carousel-options:list index out of range
+2017-10-31 14:47:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:51 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0746DZ6FW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:47:52 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:54 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:54 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:47:54 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:54 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:47:55 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:48:04 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B06XJ1Z7HV. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:48:06 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:48:49 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:48:51 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:48:51 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:48:52 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:48:55 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:48:55 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:48:56 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:48:57 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:48:59 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:05 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:05 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:08 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:08 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:13 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:14 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:14 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:15 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:20 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:20 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:20 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:20 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:20 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:22 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:22 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:23 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:23 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:25 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:26 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:27 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0746H1KXW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:49:27 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:27 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:27 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:27 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:28 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:30 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:33 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075DDPL1Q. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:49:33 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:33 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:34 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:35 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:35 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:35 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B07556N9JG. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:49:36 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:36 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:36 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:37 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:38 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:38 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:39 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:40 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:41 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:42 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0744G7XRK. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:49:43 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:43 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:43 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:45 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:45 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:47 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:47 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:47 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:50 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:50 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:51 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:51 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:52 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:53 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:54 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:54 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:54 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:56 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:56 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:56 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:57 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:58 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:49:58 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:49:59 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:00 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:00 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075DDPL1Q. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:50:00 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:01 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:01 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:01 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:01 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0757HKVNJ. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:50:02 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:02 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:06 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:06 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:50:07 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:07 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:09 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:09 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:11 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:11 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:11 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:11 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:12 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:13 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:15 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:16 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:16 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:16 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:17 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:18 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:19 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:20 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:21 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:22 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:22 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:22 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:22 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:23 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:24 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:24 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:24 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:24 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:26 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:26 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:28 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:28 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:28 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:29 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:32 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:34 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:34 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:34 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:35 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:40 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:42 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:45 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:45 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:46 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:47 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0722QQMC5. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:50:49 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:50:53 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:50:53 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:51:00 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B06XJ1Z7HV. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:51:04 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0722QQMC5. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:51:09 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:51:09 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:51:37 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:51:37 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:51:40 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:51:40 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:51:41 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:51:44 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:51:46 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:51:52 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:51:52 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:51:56 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:51:56 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:51:59 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:52:01 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:52:02 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:52:04 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:52:04 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:52:05 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:52:05 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:52:05 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:52:06 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075D7ST6F. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:52:14 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:52:20 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074G3WRLX. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:52:23 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:52:24 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074C125TN. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:52:30 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B075DWS7YT. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:52:38 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:54:48 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:54:50 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:54:52 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:54:53 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:54:54 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:54:54 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:54:55 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:54:57 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:54:58 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:07 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:07 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:11 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:11 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:12 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074P44Z52. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:55:14 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:15 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:17 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:18 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:20 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:20 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:21 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:22 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:25 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:26 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:26 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:28 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:31 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:32 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:33 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:36 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:37 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:40 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:40 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0746KT2LW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 14:55:40 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:40 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:41 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:42 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:42 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:45 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:47 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:47 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:48 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:49 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:51 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:52 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:54 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:55 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:56 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:56 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:56 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:55:58 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:55:58 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:56:00 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:56:02 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:56:04 [root] ERROR: //*[@id='quickPromoBucketContent']//li:list index out of range
+2017-10-31 14:56:05 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:56:07 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:56:11 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:56:13 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:56:14 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:56:15 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:56:15 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 14:56:17 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:56:18 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:56:20 [root] ERROR: normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text()):could not convert string to float: 
+2017-10-31 14:56:21 [root] ERROR: //*[@id='HLCXComparisonTable']//a/@href:local variable 'similar_item_item' referenced before assignment
+2017-10-31 16:18:22 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074G3WRLX/ref=cm_cr_arp_d_paging_btm_2?ie=UTF8&pageNumber=2&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:20:22 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074S33NDB/ref=cm_cr_arp_d_paging_btm_5?ie=UTF8&pageNumber=5&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:20:45 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074M4VBLC/ref=cm_cr_arp_d_paging_btm_12?ie=UTF8&pageNumber=12&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:20:50 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074QKS8RK/ref=cm_cr_arp_d_paging_btm_11?ie=UTF8&pageNumber=11&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:21:06 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B073DR5ZPQ/ref=cm_cr_arp_d_paging_btm_6?ie=UTF8&pageNumber=6&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:21:54 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074J99B6P/ref=cm_cr_arp_d_paging_btm_2?ie=UTF8&pageNumber=2&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:23:10 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B075XJY5MM/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=all_reviews&pageNumber=1. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:24:29 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B075FL63DW/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=all_reviews&pageNumber=1. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:26:09 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074CR3TWB/ref=cm_cr_arp_d_paging_btm_10?ie=UTF8&pageNumber=10&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:26:10 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B075XL1X5P/ref=cm_cr_arp_d_paging_btm_10?ie=UTF8&pageNumber=10&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:26:14 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B0753GRNQZ/ref=cm_cr_arp_d_paging_btm_11?ie=UTF8&pageNumber=11&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:26:28 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B074THH5Q2/ref=cm_cr_arp_d_paging_btm_14?ie=UTF8&pageNumber=14&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-10-31 16:27:02 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/product-reviews/B0753GRNQZ/ref=cm_cr_arp_d_paging_btm_17?ie=UTF8&pageNumber=17&reviewerType=all_reviews. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests

@@ -15,7 +15,7 @@ from items import AmazonProductInsalesItem, AmazonTop100BestSellersItem, AmazonT
 from items import amazon_product_reviews, amazon_product_baseinfo, amazon_product_technical_details, amazon_product_category_sales_rank
 from items import amazon_product_descriptions, amazon_product_pictures, amazon_product_bought_together_list, amazon_product_also_bought_list
 from items import amazon_product_current_reviews, amazon_product_promotions, amazon_traffic_sponsored_products, amazon_traffic_buy_other_after_view
-from items import amazon_traffic_similar_items, amazon_keyword_search_rank, amazon_keyword_search_sponsered
+from items import amazon_traffic_similar_items, amazon_keyword_search_rank, amazon_keyword_search_sponsered,FeedbackItem
 from items import amazon_product_review_percent_info, amazon_product_review_result, amazon_top_reviewers
 from scrapy.pipelines.files import FilesPipeline
 from scrapy.exceptions import DropItem
@@ -816,4 +816,76 @@ class OffersCatchPipeline(FilesPipeline):
             raise DropItem("Item contains no files")
         item['file_paths'] = file_paths
         return item
+
+
+class FeedbackPipeline():
+    '''保存到数据库中对应的class
+       1、在settings.py文件中配置
+       2、在自己实现的爬虫类中yield item,会自动执行'''
+
+    def __init__(self, dbpool):
+        self.dbpool = dbpool
+        ''' 这里注释中采用写死在代码中的方式连接线程池，可以从settings配置文件中读取，更加灵活
+            self.dbpool=adbapi.ConnectionPool('MySQLdb',
+                                          host='127.0.0.1',
+                                          db='amazonFrontCrawl',
+                                          user='root',
+                                          passwd='root123',
+                                          cursorclass=MySQLdb.cursors.DictCursor,
+                                          charset='utf8',
+                                          use_unicode=False)'''
+
+    @classmethod
+    def from_settings(cls, settings):
+        '''1、@classmethod声明一个类方法，而对于平常我们见到的则叫做实例方法。
+           2、类方法的第一个参数cls（class的缩写，指这个类本身），而实例方法的第一个参数是self，表示该类的一个实例
+           3、可以通过类来调用，就像C.f()，相当于java中的静态方法'''
+        dbparams = dict(
+            host=settings['MYSQL_HOST'],  # 读取settings中的配置
+            db=settings['MYSQL_DBNAME'],
+            user=settings['MYSQL_USER'],
+            passwd=settings['MYSQL_PASSWD'],
+            charset='utf8',  # 编码要加上，否则可能出现中文乱码问题
+            cursorclass=MySQLdb.cursors.DictCursor,
+            use_unicode=False,
+        )
+        dbpool = adbapi.ConnectionPool('MySQLdb', **dbparams)  # **表示将字典扩展为关键字参数,相当于host=xxx,db=yyy....
+        logging.info("connect mysql db ......")
+        return cls(dbpool)  # 相当于dbpool付给了这个类，self中可以得到
+
+    # pipeline默认调用
+    def process_item(self, item, spider):
+        if isinstance(item, FeedbackItem):
+            query = self.dbpool.runInteraction(self._feedback_insert, item)  # 调用插入的方法
+            query.addErrback(self._handle_error, item, spider)  # 调用异常处理方法
+        else:
+            pass
+        return item
+
+    # feedback 写入数据库中
+    def _feedback_insert(self, tx, item):
+        # print item['name']
+        dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        sql_cmd = r'select * from feedback where date="%s" and zone="%s" and shop_name="%s"'%(item["date"],
+                                                                         item["zone"], item["shop_name"])
+        tx.execute(sql_cmd)
+        if not tx.fetchall():
+
+            sql = r'insert into feedback (date,zone,shop_name,last_30_days,last_90_days,' \
+              r'last_12_months,lifetime,create_time,update_time) values("%s","%s","%s",%d,%d,%d,%d,"%s","%s");'%(item["date"],
+                    item["zone"], item["shop_name"], item["last_30_days"], item["last_90_days"], item["last_12_months"],
+                  item["lifetime"], dt, dt)
+            print("insert data to monitor_feedback ......%s"%item["shop_name"])
+            logging.info("insert data to monitor_feedback ......")
+            tx.execute(sql)
+            print("insert data into mLonitor_feedback success ......")
+        else:
+            print("There is data in the table ......")
+
+    # 错误处理方法
+    def _handle_error(self, failue, item, spider):
+        print ('--------------database operation exception!!-----------------')
+        print ('-------------------------------------------------------------')
+        print (failue)
+        print ('------------------------------------------------------------')
 

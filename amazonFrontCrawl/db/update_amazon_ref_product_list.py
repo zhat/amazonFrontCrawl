@@ -1,16 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import os
+import sys
 import MySQLdb
-from amazonFrontCrawl import settings
-
 # MySQL configuration
-MYSQL_HOST   = settings.MYSQL_HOST
-MYSQL_DBNAME = settings.MYSQL_DBNAME
-MYSQL_USER   = settings.MYSQL_USER
-MYSQL_PASSWD = settings.MYSQL_PASSWD
-MYSQL_PORT   = settings.MYSQL_PORT
-
-
 
 def update_amazon_ref_product_list():
     user = MYSQL_USER
@@ -54,4 +47,16 @@ def update_amazon_ref_product_list():
     conn.close()
 
 # execute
-update_amazon_ref_product_list()
+if __name__=='__main__':
+    base_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    print(base_path)
+    sys.path.append(base_path)
+    from amazonFrontCrawl import settings
+    # MySQL configuration
+    MYSQL_HOST = settings.MYSQL_HOST
+    MYSQL_DBNAME = settings.MYSQL_DBNAME
+    MYSQL_USER = settings.MYSQL_USER
+    MYSQL_PASSWD = settings.MYSQL_PASSWD
+    MYSQL_PORT = settings.MYSQL_PORT
+    update_amazon_ref_product_list()
+

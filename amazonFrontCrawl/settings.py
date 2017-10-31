@@ -93,12 +93,12 @@ COOKIES_ENABLED = False
 
 
 # log
-LOG_FILE = '/usr/projects/logs/amazonFrontCrawl.log'
+LOG_FILE = '/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl.log'
 # LOG_LEVEL = 'INFO'
 LOG_LEVEL = 'WARNING' #OPTIONS: NOTEST,DEBUG,INFO,WARNING,ERROR,CRITICAL
 
 # download
-FILES_STORE = '/root/spider_downloads'
+FILES_STORE = '/home/zz/projects/amazonFrontCrawl/spider_downloads'
 
 # 90 days of delay for files expiration
 FILES_EXPIRES = 30
@@ -212,11 +212,17 @@ DOWNLOADER_MIDDLEWARES = {
 
 
 # MySQL configuration
-MYSQL_HOST   = '192.168.2.98' # 127.0.0.1
-MYSQL_DBNAME = 'amazonFrontCrawl'
-MYSQL_USER   = 'root'
-MYSQL_PASSWD = 'root123'
+MYSQL_HOST   = '192.168.2.97' # 127.0.0.1
+MYSQL_DBNAME = 'amazonfrontcrawl'
+MYSQL_USER   = 'lepython'
+MYSQL_PASSWD = 'qaz123456'
 MYSQL_PORT   = 3306
+
+# MYSQL_HOST   = '192.168.2.98' # 127.0.0.1
+# MYSQL_DBNAME = 'amazonFrontCrawl'
+# MYSQL_USER   = 'root'
+# MYSQL_PASSWD = 'root123'
+# MYSQL_PORT   = 3306
 
 # item pipelines
 ITEM_PIPELINES = {

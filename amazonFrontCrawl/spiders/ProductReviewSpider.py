@@ -96,7 +96,7 @@ class ProductReviewSpider(scrapy.Spider):
             review_item["review_star"] = review.xpath(".//i[@data-hook='review-star-rating']/span/text()").extract()[0].encode('utf-8')
 
             review_item["review_title"] = review.xpath(".//a[@data-hook='review-title']/text()").extract()[0].encode('utf-8')
-
+            print(review_item["review_title"])
             review_item["reviewer_name"] = review.xpath(".//a[@data-hook='review-author']/text()").extract()[0].encode('utf-8')
 
             review_item["reviewer_url"] = review.xpath(".//a[@data-hook='review-author']/@href").extract()[0].encode('utf-8')
@@ -118,7 +118,7 @@ class ProductReviewSpider(scrapy.Spider):
                 review_text += review_temp.encode('utf-8')
 
             review_item["review_text"] = review_text
-
+            print(review_text)
             review_item['is_verified_purchase'] = 'N'
             try:
                 if len(review.xpath(".//span[@data-hook='avp-badge']/text()")) > 0:
