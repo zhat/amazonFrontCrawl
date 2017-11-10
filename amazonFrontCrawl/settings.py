@@ -213,7 +213,8 @@ DOWNLOADER_MIDDLEWARES = {
 
 # MySQL configuration
 MYSQL_HOST   = '192.168.2.97' # 127.0.0.1
-MYSQL_DBNAME = 'amazonfrontcrawl'
+#MYSQL_DBNAME = 'amazonfrontcrawl'
+MYSQL_DBNAME = 'amazonfrontcrawl_dev'
 MYSQL_USER   = 'lepython'
 MYSQL_PASSWD = 'qaz123456'
 MYSQL_PORT   = 3306

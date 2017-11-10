@@ -7,6 +7,7 @@
 from twisted.enterprise import adbapi
 import MySQLdb
 import MySQLdb.cursors
+import pymysql
 import codecs
 import json
 import logging
@@ -711,11 +712,11 @@ class ProductReviewPipeline(object):
             db=settings['MYSQL_DBNAME'],
             user=settings['MYSQL_USER'],
             passwd=settings['MYSQL_PASSWD'],
-            charset='utf8',  # 编码要加上，否则可能出现中文乱码问题
-            cursorclass=MySQLdb.cursors.DictCursor,
+            charset='utf8mb4',  # 编码要加上，否则可能出现中文乱码问题
+            cursorclass=pymysql.cursors.DictCursor,
             use_unicode=False,
         )
-        dbpool = adbapi.ConnectionPool('MySQLdb', **dbparams)  # **表示将字典扩展为关键字参数,相当于host=xxx,db=yyy....
+        dbpool = adbapi.ConnectionPool('pymysql', **dbparams)  # **表示将字典扩展为关键字参数,相当于host=xxx,db=yyy....
         logging.info("connect mysql db ......")
         return cls(dbpool)  # 相当于dbpool付给了这个类，self中可以得到
 

@@ -1,21 +1,16 @@
 import scrapy
 import logging
 from scrapy.selector import Selector
-from scrapy.http import HtmlResponse,Request
+from scrapy.http import Request
 import MySQLdb
 from amazonFrontCrawl import settings
 import re
 from tld import get_tld
-from amazonFrontCrawl.items import amazon_product_reviews, amazon_product_review_percent_info, amazon_product_review_result
+from amazonFrontCrawl.items import amazon_product_reviews
 from datetime import datetime
-import ast
-from amazonFrontCrawl.tools.amazonCrawlTools import StringUtilTool
 
 class ProductReviewSpider(scrapy.Spider):
     name = 'ProductReviewSpider'
-    # allowed_domains = ["www.amazon.com", "www.amazon.com"]
-
-    # custom settings , will overwrite the setting in settings.py
     custom_settings = {
         'ITEM_PIPELINES': {'amazonFrontCrawl.pipelines.ProductReviewPipeline': 300}
     }
@@ -41,8 +36,6 @@ class ProductReviewSpider(scrapy.Spider):
         rows = cursor.fetchall()
         for row in rows:
             review_url = self.product_url_to_review_url(row[0])
-            # print(review_url)
-            # yield self.make_requests_from_url(review_url)
             yield Request(review_url, callback=self.parse, meta={'ref_id': row[2]})
         conn.close()
 
@@ -53,32 +46,13 @@ class ProductReviewSpider(scrapy.Spider):
         url = response.request.url
 
         ref_id = response.meta['ref_id']
-        # time_id = response.meta['time_id']
-
-        # handle product review percent infomation
-        # try:
-        #     acr_str = se.xpath("//*[@id='acrPopover']/span[1]/@data-a-popover")[0].extract().encode('utf-8')
-        #     acr_dict = ast.literal_eval(acr_str)
-        #     review_percent_url = '/'.join(url.split('/')[:-2]) + acr_dict["url"]
-        #     review_percent_item = amazon_product_review_percent_info()
-        #     yield review_percent_item
-        # except Exception as e:
-        #     pass
 
         domain = get_tld(response.request.url)
         zone = self.domain_to_zone(domain)
-        # asin = str(response.request.url).split('/')[-1]
         asin_list = re.findall(r"product-reviews/(.+?)/ref=cm_cr_arp_d", str(response.request.url))
         asin = asin_list[0]
 
         review_list = se.xpath("//*[@id='cm_cr-review_list']//div[@data-hook='review']")
-
-        # ref_id
-
-        # order_index
-
-        # create_date
-        # update_date
         
         for review in review_list:
 
@@ -107,9 +81,7 @@ class ProductReviewSpider(scrapy.Spider):
             else:
                 review_item["review_date"] = review_date_str
 
-
             review_item["ref_id"] = ref_id
-            # review_item["time_id"] = time_id
             review_item["order_index"] = 0
 
             review_text = ''
@@ -128,8 +100,6 @@ class ProductReviewSpider(scrapy.Spider):
 
             review_item['item_package_quantity'] = -1
             try:
-                # review_item['item_package_quantity'] = review.xpath(".//a[@data-hook='format-strip']/text()").extract()[0].encode(
-                #     'utf-8')
                 review_item['item_package_quantity'] = -1
             except Exception as e:
                 pass
@@ -189,30 +159,12 @@ class ProductReviewSpider(scrapy.Spider):
 
         # get next page link
         pagn_next_link_yes = se.xpath("//div[@id='cm_cr-pagination_bar']//li[@class='a-last']/a/@href")
-        # pagn_next_link_no  = se.xpath("//div[@id='cm_cr-pagination_bar']//li[@class='a-disabled a-last']/a/@href")
 
         if len(pagn_next_link_yes) > 0:
             pagn_next_link = pagn_next_link_yes.extract()[0].encode('utf-8')
             pagn_next_link_str = self.zone_to_domain(zone) + '/product-reviews/' +pagn_next_link.split('/product-reviews/')[1]
-            # pagn_next_link_str = 'https://www.amazon.de/product-reviews/B01E8SWHHS/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=all_reviews&pageNumber=2'
             yield Request(pagn_next_link_str, callback=self.parse, meta={'ref_id': ref_id})
-        # else:
-        #     review_result_item = amazon_product_review_result()
-        #     review_result_item["zone"] = zone
-        #     review_result_item["asin"] = asin
-        #     review_result_item["result_flag"] = 1
-        #     yield review_result_item
 
-    # def parse_review_percent_url(self, response):
-    #     logging.info('---------------------start parse review_percent info-------------------------')
-    #     se = Selector(response)
-    #
-    #     review_percent_item = amazon_product_review_percent_info()
-    #
-    #     url = response.request.url
-    #     asin = url.split('asin=')[-1]
-    #
-    #     review_percent_item["asin"] = asin
 
     def zone_to_domain(self, zone):
         switcher = {

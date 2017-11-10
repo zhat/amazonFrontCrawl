@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8dcc906-f606-4c27-b867-f18761132aba" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amazonFrontCrawl.log" afterPath="$PROJECT_DIR$/amazonFrontCrawl.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amazonFrontCrawl/spiders/product_listing_spider.py" afterPath="$PROJECT_DIR$/amazonFrontCrawl/spiders/product_listing_spider.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amazonFrontCrawl/pipelines.py" afterPath="$PROJECT_DIR$/amazonFrontCrawl/pipelines.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amazonFrontCrawl/settings.py" afterPath="$PROJECT_DIR$/amazonFrontCrawl/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amazonFrontCrawl/spiders/ProductReviewSpider.py" afterPath="$PROJECT_DIR$/amazonFrontCrawl/spiders/ProductReviewSpider.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/amazonFrontCrawl$main.coverage" NAME="main Coverage Results" MODIFIED="1510294805129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/amazonFrontCrawl$main.coverage" NAME="main Coverage Results" MODIFIED="1510301415637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -24,24 +26,19 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="45" />
+            <state relative-caret-position="60">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update_amazon_product_reviews.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/db/update_amazon_product_reviews.py">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2360">
-              <caret line="118" column="42" lean-forward="false" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="42" />
-              <folding>
-                <element signature="e#24#34#0" expanded="true" />
-                <marker date="1509429591050" expanded="true" signature="407:1420" ph="insert into amazon_product_reviews_total... " />
-                <marker date="1509429591050" expanded="true" signature="1459:2717" ph="insert into amazon_product_reviews_dels... " />
-                <marker date="1509429591050" expanded="true" signature="2755:2789" ph="delete from " />
-              </folding>
+            <state relative-caret-position="332">
+              <caret line="225" column="21" lean-forward="true" selection-start-line="225" selection-start-column="21" selection-end-line="225" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,47 +46,47 @@
       <file leaf-file-name="pipelines.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="657" column="20" lean-forward="true" selection-start-line="657" selection-start-column="20" selection-end-line="657" selection-end-column="20" />
+            <state relative-caret-position="321">
+              <caret line="718" column="38" lean-forward="false" selection-start-line="718" selection-start-column="24" selection-end-line="718" selection-end-column="38" />
               <folding>
                 <element signature="e#192#229#0" expanded="true" />
-                <marker date="1509421413403" expanded="true" signature="3976:4120" ph="insert into amazon_keyword_search_sponsered... " />
-                <marker date="1509421413403" expanded="true" signature="4475:4620" ph="insert into amazon_keyword_search_rank... " />
-                <marker date="1509421413403" expanded="true" signature="7440:7584" ph="insert into amazon_keyword_search_sponsered... " />
-                <marker date="1509421413403" expanded="true" signature="7939:8084" ph="insert into amazon_keyword_search_rank... " />
-                <marker date="1509421413403" expanded="true" signature="10778:10972" ph="insert into amazon_top_reviewers... " />
-                <marker date="1509421413403" expanded="true" signature="13735:13875" ph="insert into amazon_product_insales... " />
-                <marker date="1509421413403" expanded="true" signature="17236:17397" ph="insert into amazon_top100_best_sellers... " />
-                <marker date="1509421413403" expanded="true" signature="17913:18072" ph="insert into amazon_top100_gift_ideas... " />
-                <marker date="1509421413403" expanded="true" signature="18594:18759" ph="insert into amazon_top100_hot_new_releases... " />
-                <marker date="1509421413403" expanded="true" signature="19277:19437" ph="insert into amazon_top100_most_wished... " />
-                <marker date="1509421413403" expanded="true" signature="24883:24996" ph="insert into amazon_traffic_similar_items... " />
-                <marker date="1509421413403" expanded="true" signature="25529:25649" ph="insert into amazon_traffic_buy_other_after_view... " />
-                <marker date="1509421413403" expanded="true" signature="26192:26319" ph="insert into amazon_traffic_sponsored_products... " />
-                <marker date="1509421413403" expanded="true" signature="26856:26986" ph="insert into amazon_product_promotions... " />
-                <marker date="1509421413403" expanded="true" signature="27528:27782" ph="insert into amazon_product_current_reviews... " />
-                <marker date="1509421413403" expanded="true" signature="28490:28610" ph="insert into amazon_product_also_bought_list... " />
-                <marker date="1509421413403" expanded="true" signature="29153:29281" ph="insert into amazon_product_bought_together_list... " />
-                <marker date="1509421413403" expanded="true" signature="29812:29943" ph="insert into amazon_product_pictures... " />
-                <marker date="1509421413403" expanded="true" signature="30483:30637" ph="insert into amazon_product_descriptions... " />
-                <marker date="1509421413403" expanded="true" signature="31218:31353" ph="insert into amazon_product_category_sales_rank... " />
-                <marker date="1509421413403" expanded="true" signature="31913:32041" ph="insert into amazon_product_technical_details... " />
-                <marker date="1509421413403" expanded="true" signature="32644:33087" ph="insert into amazon_product_baseinfo... " />
-                <marker date="1509421413403" expanded="true" signature="36699:36836" ph="update amazo... " />
-                <marker date="1509421413403" expanded="true" signature="37330:37761" ph="insert into amazon_product_reviews... " />
-                <marker date="1509421413403" expanded="true" signature="38830:39047" ph="insert into amazon_product_review_percent_info... " />
-                <marker date="1509421413403" expanded="true" signature="42869:42940" ph="select * fro... feedback" />
-                <marker date="1509421413403" expanded="true" signature="43142:43323" ph="insert into feedback... " />
+                <marker date="1510301389955" expanded="true" signature="3991:4135" ph="insert into amazon_keyword_search_sponsered... " />
+                <marker date="1510301389955" expanded="true" signature="4490:4635" ph="insert into amazon_keyword_search_rank... " />
+                <marker date="1510301389955" expanded="true" signature="7455:7599" ph="insert into amazon_keyword_search_sponsered... " />
+                <marker date="1510301389955" expanded="true" signature="7954:8099" ph="insert into amazon_keyword_search_rank... " />
+                <marker date="1510301389955" expanded="true" signature="10793:10987" ph="insert into amazon_top_reviewers... " />
+                <marker date="1510301389955" expanded="true" signature="13750:13890" ph="insert into amazon_product_insales... " />
+                <marker date="1510301389955" expanded="true" signature="17251:17412" ph="insert into amazon_top100_best_sellers... " />
+                <marker date="1510301389955" expanded="true" signature="17928:18087" ph="insert into amazon_top100_gift_ideas... " />
+                <marker date="1510301389955" expanded="true" signature="18609:18774" ph="insert into amazon_top100_hot_new_releases... " />
+                <marker date="1510301389955" expanded="true" signature="19292:19452" ph="insert into amazon_top100_most_wished... " />
+                <marker date="1510301389955" expanded="true" signature="24898:25011" ph="insert into amazon_traffic_similar_items... " />
+                <marker date="1510301389955" expanded="true" signature="25544:25664" ph="insert into amazon_traffic_buy_other_after_view... " />
+                <marker date="1510301389955" expanded="true" signature="26207:26334" ph="insert into amazon_traffic_sponsored_products... " />
+                <marker date="1510301389955" expanded="true" signature="26871:27001" ph="insert into amazon_product_promotions... " />
+                <marker date="1510301389955" expanded="true" signature="27543:27797" ph="insert into amazon_product_current_reviews... " />
+                <marker date="1510301389955" expanded="true" signature="28505:28625" ph="insert into amazon_product_also_bought_list... " />
+                <marker date="1510301389955" expanded="true" signature="29168:29296" ph="insert into amazon_product_bought_together_list... " />
+                <marker date="1510301389955" expanded="true" signature="29827:29958" ph="insert into amazon_product_pictures... " />
+                <marker date="1510301389955" expanded="true" signature="30498:30652" ph="insert into amazon_product_descriptions... " />
+                <marker date="1510301389955" expanded="true" signature="31233:31368" ph="insert into amazon_product_category_sales_rank... " />
+                <marker date="1510301389955" expanded="true" signature="31928:32056" ph="insert into amazon_product_technical_details... " />
+                <marker date="1510301389955" expanded="true" signature="32659:33102" ph="insert into amazon_product_baseinfo... " />
+                <marker date="1510301389955" expanded="true" signature="36717:36854" ph="update amazo... " />
+                <marker date="1510301389955" expanded="true" signature="37348:37779" ph="insert into amazon_product_reviews... " />
+                <marker date="1510301389955" expanded="true" signature="38848:39065" ph="insert into amazon_product_review_percent_info... " />
+                <marker date="1510301389955" expanded="true" signature="42887:42958" ph="select * fro... feedback" />
+                <marker date="1510301389955" expanded="true" signature="43160:43341" ph="insert into feedback... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getShopProducts.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/getShopProducts.py">
+      <file leaf-file-name="adbapi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda3/envs/python27/lib/python2.7/site-packages/twisted/enterprise/adbapi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="111" column="27" lean-forward="false" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="29" />
+            <state relative-caret-position="426">
+              <caret line="223" column="32" lean-forward="true" selection-start-line="223" selection-start-column="32" selection-end-line="223" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -98,8 +95,8 @@
       <file leaf-file-name="productListing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/productListing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="80" column="29" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="29" />
+            <state relative-caret-position="75">
+              <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -107,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product_listing_spider.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="product_listing_spider.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/product_listing_spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="217" column="51" lean-forward="false" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
+            <state relative-caret-position="387">
+              <caret line="219" column="6" lean-forward="false" selection-start-line="219" selection-start-column="6" selection-end-line="219" selection-end-column="6" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
                 <marker date="1510294800164" expanded="true" signature="1582:1617" ph="delete from " />
@@ -124,38 +121,40 @@
       <file leaf-file-name="amazonFrontCrawl.log" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/amazonFrontCrawl.log">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-149186">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TodayDealsSpider.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/TodayDealsSpider.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductReviewSpider.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProductReviewSpider.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/ProductReviewSpider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2180">
-              <caret line="120" column="29" lean-forward="false" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
+            <state relative-caret-position="-3622">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda3/envs/python27/lib/python2.7/site-packages/MySQLdb/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="80" column="21" lean-forward="false" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductSpider.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/ProductSpider.py">
+      <file leaf-file-name="connections.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda3/envs/python27/lib/python2.7/site-packages/MySQLdb/connections.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+            <state relative-caret-position="4732">
+              <caret line="300" column="25" lean-forward="false" selection-start-line="300" selection-start-column="8" selection-end-line="300" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -172,8 +171,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ProductlistingSpider</find>
-      <find>log_le</find>
       <find>100_dealView_8</find>
       <find>OffersCatchPipeline</find>
       <find>name</find>
@@ -191,7 +188,6 @@
       <find>votes</find>
       <find>percent_5_star</find>
       <find>is_top_reviewer</find>
-      <find>review_text</find>
       <find>review_title</find>
       <find>is_fba</find>
       <find>[0]</find>
@@ -202,6 +198,9 @@
       <find>yield</find>
       <find>key_name</find>
       <find>Request</find>
+      <find>key</find>
+      <find>base</find>
+      <find>review_text</find>
     </findStrings>
     <replaceStrings>
       <replace>amazon_product_reviews</replace>
@@ -248,7 +247,6 @@
         <option value="$PROJECT_DIR$/amazonFrontCrawl/spiders/OffersCatchSpider.py" />
         <option value="$PROJECT_DIR$/amazonFrontCrawl/spiders/getShopProducts.py" />
         <option value="$PROJECT_DIR$/amazonFrontCrawl/items.py" />
-        <option value="$PROJECT_DIR$/amazonFrontCrawl/pipelines.py" />
         <option value="$PROJECT_DIR$/crawl_crontabs/update_amazon_ref_product_list.sh" />
         <option value="$PROJECT_DIR$/crawl_crontabs/update_amazon_product_reviews.sh" />
         <option value="$PROJECT_DIR$/crawl_crontabs/ProductReviewSpider.sh" />
@@ -258,12 +256,13 @@
         <option value="$PROJECT_DIR$/amazonFrontCrawl/__init__.py" />
         <option value="$PROJECT_DIR$/amazonFrontCrawl/db/update_amazon_ref_product_list.py" />
         <option value="$PROJECT_DIR$/crawl_crontabs/productListing.sh" />
-        <option value="$PROJECT_DIR$/amazonFrontCrawl/spiders/ProductReviewSpider.py" />
         <option value="$PROJECT_DIR$/crawl_crontabs/feedback.sh" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/amazonFrontCrawl/spiders/productListing.py" />
-        <option value="$PROJECT_DIR$/amazonFrontCrawl/settings.py" />
         <option value="$PROJECT_DIR$/amazonFrontCrawl/spiders/product_listing_spider.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/amazonFrontCrawl/settings.py" />
+        <option value="$PROJECT_DIR$/amazonFrontCrawl/pipelines.py" />
+        <option value="$PROJECT_DIR$/amazonFrontCrawl/spiders/ProductReviewSpider.py" />
       </list>
     </option>
   </component>
@@ -625,6 +624,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="28" width="1922" height="1019" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19010417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -632,7 +632,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17745535" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40513393" sideWeight="0.85078126" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40513393" sideWeight="0.85078126" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -809,12 +809,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/amazonFrontCrawl/pipelines.py</url>
-          <line>91</line>
+          <line>92</line>
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/amazonFrontCrawl/pipelines.py</url>
-          <line>95</line>
+          <line>96</line>
           <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -824,12 +824,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/amazonFrontCrawl/pipelines.py</url>
-          <line>741</line>
+          <line>742</line>
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/amazonFrontCrawl/pipelines.py</url>
-          <line>745</line>
+          <line>746</line>
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -889,12 +889,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/amazonFrontCrawl/pipelines.py</url>
-          <line>295</line>
+          <line>296</line>
           <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/amazonFrontCrawl/pipelines.py</url>
-          <line>300</line>
+          <line>301</line>
           <option name="timeStamp" value="202" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -939,7 +939,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/amazonFrontCrawl/spiders/ProductReviewSpider.py</url>
-          <line>119</line>
+          <line>91</line>
           <option name="timeStamp" value="218" />
         </line-breakpoint>
       </breakpoints>
@@ -958,9 +958,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/twisted/_threads/_team.py" />
-    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/twisted/python/threadpool.py" />
-    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/twisted/python/context.py" />
     <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/twisted/enterprise/adbapi.py" />
     <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/scrapy/utils/project.py" />
     <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/selenium/webdriver/common/utils.py" />
@@ -1113,22 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/amazonFrontCrawl.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/getShopProducts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -1137,66 +1118,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/ProductReviewSpider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2180">
-          <caret line="120" column="29" lean-forward="false" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/productListing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="80" column="29" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="29" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/Top100Series.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="36" column="70" lean-forward="false" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="70" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/pipelines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="657" column="20" lean-forward="true" selection-start-line="657" selection-start-column="20" selection-end-line="657" selection-end-column="20" />
-          <folding>
-            <element signature="e#192#229#0" expanded="true" />
-            <marker date="1509421413403" expanded="true" signature="3976:4120" ph="insert into amazon_keyword_search_sponsered... " />
-            <marker date="1509421413403" expanded="true" signature="4475:4620" ph="insert into amazon_keyword_search_rank... " />
-            <marker date="1509421413403" expanded="true" signature="7440:7584" ph="insert into amazon_keyword_search_sponsered... " />
-            <marker date="1509421413403" expanded="true" signature="7939:8084" ph="insert into amazon_keyword_search_rank... " />
-            <marker date="1509421413403" expanded="true" signature="10778:10972" ph="insert into amazon_top_reviewers... " />
-            <marker date="1509421413403" expanded="true" signature="13735:13875" ph="insert into amazon_product_insales... " />
-            <marker date="1509421413403" expanded="true" signature="17236:17397" ph="insert into amazon_top100_best_sellers... " />
-            <marker date="1509421413403" expanded="true" signature="17913:18072" ph="insert into amazon_top100_gift_ideas... " />
-            <marker date="1509421413403" expanded="true" signature="18594:18759" ph="insert into amazon_top100_hot_new_releases... " />
-            <marker date="1509421413403" expanded="true" signature="19277:19437" ph="insert into amazon_top100_most_wished... " />
-            <marker date="1509421413403" expanded="true" signature="24883:24996" ph="insert into amazon_traffic_similar_items... " />
-            <marker date="1509421413403" expanded="true" signature="25529:25649" ph="insert into amazon_traffic_buy_other_after_view... " />
-            <marker date="1509421413403" expanded="true" signature="26192:26319" ph="insert into amazon_traffic_sponsored_products... " />
-            <marker date="1509421413403" expanded="true" signature="26856:26986" ph="insert into amazon_product_promotions... " />
-            <marker date="1509421413403" expanded="true" signature="27528:27782" ph="insert into amazon_product_current_reviews... " />
-            <marker date="1509421413403" expanded="true" signature="28490:28610" ph="insert into amazon_product_also_bought_list... " />
-            <marker date="1509421413403" expanded="true" signature="29153:29281" ph="insert into amazon_product_bought_together_list... " />
-            <marker date="1509421413403" expanded="true" signature="29812:29943" ph="insert into amazon_product_pictures... " />
-            <marker date="1509421413403" expanded="true" signature="30483:30637" ph="insert into amazon_product_descriptions... " />
-            <marker date="1509421413403" expanded="true" signature="31218:31353" ph="insert into amazon_product_category_sales_rank... " />
-            <marker date="1509421413403" expanded="true" signature="31913:32041" ph="insert into amazon_product_technical_details... " />
-            <marker date="1509421413403" expanded="true" signature="32644:33087" ph="insert into amazon_product_baseinfo... " />
-            <marker date="1509421413403" expanded="true" signature="36699:36836" ph="update amazo... " />
-            <marker date="1509421413403" expanded="true" signature="37330:37761" ph="insert into amazon_product_reviews... " />
-            <marker date="1509421413403" expanded="true" signature="38830:39047" ph="insert into amazon_product_review_percent_info... " />
-            <marker date="1509421413403" expanded="true" signature="42869:42940" ph="select * fro... feedback" />
-            <marker date="1509421413403" expanded="true" signature="43142:43323" ph="insert into feedback... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1242,14 +1168,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="241" column="29" lean-forward="true" selection-start-line="241" selection-start-column="29" selection-end-line="241" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/db/update_amazon_product_reviews.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2360">
@@ -1273,12 +1191,117 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/product_listing_spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="217" column="51" lean-forward="false" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
+        <state relative-caret-position="387">
+          <caret line="219" column="6" lean-forward="false" selection-start-line="219" selection-start-column="6" selection-end-line="219" selection-end-column="6" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
             <marker date="1510294800164" expanded="true" signature="1582:1617" ph="delete from " />
             <marker date="1510294800164" expanded="true" signature="1682:2798" ph="insert into amazon_ref_product_list... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/amazonFrontCrawl.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-149186">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/productListing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/python27/lib/python2.7/site-packages/MySQLdb/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="80" column="21" lean-forward="false" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/python27/lib/python2.7/site-packages/MySQLdb/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4732">
+          <caret line="300" column="25" lean-forward="false" selection-start-line="300" selection-start-column="8" selection-end-line="300" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/python27/lib/python2.7/site-packages/twisted/enterprise/adbapi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="223" column="32" lean-forward="true" selection-start-line="223" selection-start-column="32" selection-end-line="223" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="225" column="21" lean-forward="true" selection-start-line="225" selection-start-column="21" selection-end-line="225" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="718" column="38" lean-forward="false" selection-start-line="718" selection-start-column="24" selection-end-line="718" selection-end-column="38" />
+          <folding>
+            <element signature="e#192#229#0" expanded="true" />
+            <marker date="1510301389955" expanded="true" signature="3991:4135" ph="insert into amazon_keyword_search_sponsered... " />
+            <marker date="1510301389955" expanded="true" signature="4490:4635" ph="insert into amazon_keyword_search_rank... " />
+            <marker date="1510301389955" expanded="true" signature="7455:7599" ph="insert into amazon_keyword_search_sponsered... " />
+            <marker date="1510301389955" expanded="true" signature="7954:8099" ph="insert into amazon_keyword_search_rank... " />
+            <marker date="1510301389955" expanded="true" signature="10793:10987" ph="insert into amazon_top_reviewers... " />
+            <marker date="1510301389955" expanded="true" signature="13750:13890" ph="insert into amazon_product_insales... " />
+            <marker date="1510301389955" expanded="true" signature="17251:17412" ph="insert into amazon_top100_best_sellers... " />
+            <marker date="1510301389955" expanded="true" signature="17928:18087" ph="insert into amazon_top100_gift_ideas... " />
+            <marker date="1510301389955" expanded="true" signature="18609:18774" ph="insert into amazon_top100_hot_new_releases... " />
+            <marker date="1510301389955" expanded="true" signature="19292:19452" ph="insert into amazon_top100_most_wished... " />
+            <marker date="1510301389955" expanded="true" signature="24898:25011" ph="insert into amazon_traffic_similar_items... " />
+            <marker date="1510301389955" expanded="true" signature="25544:25664" ph="insert into amazon_traffic_buy_other_after_view... " />
+            <marker date="1510301389955" expanded="true" signature="26207:26334" ph="insert into amazon_traffic_sponsored_products... " />
+            <marker date="1510301389955" expanded="true" signature="26871:27001" ph="insert into amazon_product_promotions... " />
+            <marker date="1510301389955" expanded="true" signature="27543:27797" ph="insert into amazon_product_current_reviews... " />
+            <marker date="1510301389955" expanded="true" signature="28505:28625" ph="insert into amazon_product_also_bought_list... " />
+            <marker date="1510301389955" expanded="true" signature="29168:29296" ph="insert into amazon_product_bought_together_list... " />
+            <marker date="1510301389955" expanded="true" signature="29827:29958" ph="insert into amazon_product_pictures... " />
+            <marker date="1510301389955" expanded="true" signature="30498:30652" ph="insert into amazon_product_descriptions... " />
+            <marker date="1510301389955" expanded="true" signature="31233:31368" ph="insert into amazon_product_category_sales_rank... " />
+            <marker date="1510301389955" expanded="true" signature="31928:32056" ph="insert into amazon_product_technical_details... " />
+            <marker date="1510301389955" expanded="true" signature="32659:33102" ph="insert into amazon_product_baseinfo... " />
+            <marker date="1510301389955" expanded="true" signature="36717:36854" ph="update amazo... " />
+            <marker date="1510301389955" expanded="true" signature="37348:37779" ph="insert into amazon_product_reviews... " />
+            <marker date="1510301389955" expanded="true" signature="38848:39065" ph="insert into amazon_product_review_percent_info... " />
+            <marker date="1510301389955" expanded="true" signature="42887:42958" ph="select * fro... feedback" />
+            <marker date="1510301389955" expanded="true" signature="43160:43341" ph="insert into feedback... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/amazonFrontCrawl/spiders/ProductReviewSpider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3622">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
