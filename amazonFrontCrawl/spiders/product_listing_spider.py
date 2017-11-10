@@ -38,6 +38,32 @@ class ProductlistingSpider(scrapy.Spider):
             use_unicode=True
         )
         self.cursor = self.conn.cursor()
+
+        self.cursor.execute(
+            "delete from amazon_ref_product_list;"
+        )
+
+        cursor.execute(
+            "insert into amazon_ref_product_list(zone, asin, url, status, crawl_status, ref_id)"
+            " select zone"
+            "      , asin"
+            "      , case when zone = 'us' then concat('http://www.amazon.com/dp/', asin) "
+            "             when zone = 'uk' then concat('http://www.amazon.com.uk/dp/', asin) "
+            "             when zone = 'de' then concat('http://www.amazon.de/dp/', asin) "
+            "             when zone = 'jp' then concat('http://www.amazon.jp/dp/', asin) "
+            "             when zone = 'ca' then concat('http://www.amazon.ca/dp/', asin) "
+            "             when zone = 'es' then concat('http://www.amazon.es/dp/', asin) "
+            "             when zone = 'it' then concat('http://www.amazon.it/dp/', asin) "
+            "             when zone = 'fr' then concat('http://www.amazon.fr/dp/', asin) "
+            "         end as url"
+            "      , 1"
+            "      , 0"
+            "      , id"
+            "  from amazon_product_insales a"
+            " where a.time_id = (select max(time_id) as time_id from amazon_product_insales);"
+        )
+        self.conn.commit()
+
         self.cursor.execute(
             'SELECT distinct url,asin,ref_id FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "2" ;')
         rows = self.cursor.fetchall()
