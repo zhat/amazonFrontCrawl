@@ -60,6 +60,8 @@ docs/_build/
 
 # PyBuilder
 target/
-manage.py
-celerybeat.pid
-reverse_models.py
+#manage.py
+#celerybeat.pid
+#reverse_models.py
+
+.idea/workspace.xml
