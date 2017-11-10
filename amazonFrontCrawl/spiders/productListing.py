@@ -39,7 +39,7 @@ class ProductlistingSpider(scrapy.Spider):
         )
         self.cursor = self.conn.cursor()
         self.cursor.execute(
-            'SELECT distinct url,asin,ref_id FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "1" ;'
+            'SELECT distinct url,asin,ref_id FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "2" ;'
         )
 
         rows = self.cursor.fetchall()
@@ -461,7 +461,6 @@ class ProductlistingSpider(scrapy.Spider):
         except Exception as e:
             logging.error("//*[@id='productDescription']:" + e.message)
 
-
         # ------- amazon_product_pictures -------
         try:
             image_block = se.xpath("//*[@id='imageBlock_feature_div']")
@@ -482,7 +481,6 @@ class ProductlistingSpider(scrapy.Spider):
                     yield image_item
         except Exception as e:
             logging.error("//*[@id='imageBlock_feature_div']:" + e.message)
-
 
         # ------- amazon_product_bought_together_list -------
         try:
@@ -595,8 +593,6 @@ class ProductlistingSpider(scrapy.Spider):
         except Exception as e:
             logging.error("//div[@id='cm-cr-dp-review-list']/div[@data-hook='review']:" + e.message)
 
-
-
         # ------- amazon_product_current_reviews type:recent-------
         try:
             recent_customer_reviews = se.xpath(
@@ -668,7 +664,6 @@ class ProductlistingSpider(scrapy.Spider):
         except Exception as e:
             logging.error("//div[@id='most-recent-reviews-content']/div[@data-hook='recent-review']:" + e.message)
 
-
         # ------- amazon_product_promotions -------
         try:
             promotion_list = ''
@@ -704,7 +699,6 @@ class ProductlistingSpider(scrapy.Spider):
         except Exception as e:
             logging.error("//*[@id='sp_detail']/@data-a-carousel-options:" + e.message)
 
-
         # ------- amazon_traffic_sponsored_products_2 -------
         try:
             sponsored_xpath = se.xpath("//*[@id='sp_detail2']/@data-a-carousel-options")
@@ -720,7 +714,6 @@ class ProductlistingSpider(scrapy.Spider):
             yield sponsored_item
         except Exception as e:
             logging.error("//*[@id='sp_detail']/@data-a-carousel-options:" + e.message)
-
 
         # ------- amazon_traffic_buy_other_after_view -------
         try:
@@ -748,12 +741,12 @@ class ProductlistingSpider(scrapy.Spider):
                 temp_str = temp.encode('utf-8')
                 if '/dp/' in temp_str and '/ref' in temp_str:
                     similar_item_set.add(re.findall('/dp/(.+)/ref', temp_str)[0])
-                    similar_item_lst = ','.join(similar_item_set)
-                    similar_item_item = amazon_traffic_similar_items()
-                    similar_item_item["zone"] = zone
-                    similar_item_item["asin"] = asin
-                    similar_item_item["product_list"] = similar_item_lst
-                    similar_item_item["ref_id"] = ref_id  # default value
+            similar_item_lst = ','.join(similar_item_set)
+            similar_item_item = amazon_traffic_similar_items()
+            similar_item_item["zone"] = zone
+            similar_item_item["asin"] = asin
+            similar_item_item["product_list"] = similar_item_lst
+            similar_item_item["ref_id"] = ref_id  # default value
             yield similar_item_item
         except Exception as e:
             logging.error("//*[@id='HLCXComparisonTable']//a/@href:" + e.message)
