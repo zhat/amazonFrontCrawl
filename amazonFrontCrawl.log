@@ -7081,3 +7081,264 @@ IndexError: list index out of range
 2017-11-08 18:29:06 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.amazon.com/dp/B074Z3DZDD>: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>, <twisted.python.failure.Failure twisted.web.http._DataLoss: Chunked decoder in 'CHUNK_LENGTH' state, still expecting more data to get to 'FINISHED' state.>]
 2017-11-08 18:29:15 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B07543XWKD. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
 2017-11-08 18:29:25 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074TFJFXN. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:18:59 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B005FEGYJC. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:19:41 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01C5O7E2U. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:19:44 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B0085ZX8EM. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:20:11 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00Y8AHZYC. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:20:15 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00YMNVO74. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:20:16 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01AW7Q1EO. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:20:55 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B019EXNDUC. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:21:10 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B073CPCMZ2. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:21:34 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01F3EXSOW. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:21:39 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00KW5UB6G. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:22:08 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B017GZD03A. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:22:49 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00GU556SA. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:23:07 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00MHLIH46. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:23:10 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B015MHKP1O. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:23:16 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B073TTBJBN. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:23:53 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01EAN35O0. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:24:00 [scrapy.core.scraper] ERROR: Spider error processing <GET http://www.amazon.com/dp/B01EYNC8CQ> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 483, in parse
+    sponsored_lst = re.findall('initialSeenAsins(.+)circular', sponsored_xpath.extract()[0].encode('utf-8'))[
+IndexError: list index out of range
+2017-11-10 11:24:21 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B01G4XQFC8> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 471, in parse
+    promotion_list += promotion.xpath("./text()").extract()[0].encode('utf-8')  #优惠信息
+IndexError: list index out of range
+2017-11-10 11:24:23 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B074TZ9ZTH. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:24:38 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00M2PMCZM. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:24:44 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01ID2OZQQ. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:25:04 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01GCDEAR2. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:25:22 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B019Q2151A. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:32:30 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01EWBZW0A. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:32:39 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01M7XMC6Z. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:32:42 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00MHLIFO8. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:32:45 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01DNDMSLY. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:33:03 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01DNDMNOG. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:33:19 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00XBWDCS6. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:33:37 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B01AW7Q1EO> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 186, in parse
+    print("percent_1_star:",percent_1_star,"percent_2_star:",percent_2_star,
+UnboundLocalError: local variable 'percent_1_star' referenced before assignment
+2017-11-10 11:33:41 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B01DNDMNOG. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:33:45 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B073PY4RZT. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:39:46 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 187, in parse
+    print("percent_1_star:",percent_1_star,"percent_2_star:",percent_2_star,
+UnboundLocalError: local variable 'percent_1_star' referenced before assignment
+2017-11-10 11:45:59 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 180, in parse
+    percent_5_star = p.encode('utf-8')[:-1]
+AttributeError: 'Selector' object has no attribute 'encode'
+2017-11-10 11:46:28 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 180, in parse
+    percent_5_star = p.encode('utf-8')[:-1]
+AttributeError: 'Selector' object has no attribute 'encode'
+2017-11-10 11:47:01 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00PIE41SA. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:47:04 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 180, in parse
+    percent_5_star = p.encode('utf-8')[:-1]
+AttributeError: 'Selector' object has no attribute 'encode'
+2017-11-10 11:48:04 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 180, in parse
+    percent_5_star = p.encode('utf-8')[:-1]
+AttributeError: 'Selector' object has no attribute 'encode'
+2017-11-10 11:48:49 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 180, in parse
+    percent_5_star = p.encode('utf-8')[:-1]
+AttributeError: 'Selector' object has no attribute 'encode'
+2017-11-10 11:49:34 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 180, in parse
+    percent_5_star = p.encode('utf-8')[:-1]
+AttributeError: 'Selector' object has no attribute 'encode'
+2017-11-10 11:50:41 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00PIE41SA. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:50:45 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 180, in parse
+    percent_5_star = p.encode('utf-8')[:-1]
+AttributeError: 'Selector' object has no attribute 'encode'
+2017-11-10 11:51:55 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00PIE41SA. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:54:11 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00PIE41SA. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:54:33 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00PIE41SA. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2017-11-10 11:54:48 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.amazon.com/dp/B00PIE41SA>: [<twisted.python.failure.Failure OpenSSL.SSL.Error: [('SSL routines', 'ssl3_read_bytes', 'ssl handshake failure')]>]
+2017-11-10 11:55:34 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 180, in parse
+    percent_5_star = p.encode('utf-8')[:-1]
+AttributeError: 'Selector' object has no attribute 'encode'
+2017-11-10 11:58:19 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 175, in parse
+    for i,percent in percent_xpath:
+TypeError: 'Selector' object is not iterable
+2017-11-10 11:59:18 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 179, in parse
+    percent_5_star = percent_data.decode('utf-8').strip()[:-1]
+AttributeError: 'list' object has no attribute 'decode'
+2017-11-10 12:01:06 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.amazon.com/dp/B00PIE41SA> (referer: None)
+Traceback (most recent call last):
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/anaconda3/envs/python27/lib/python2.7/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/zz/projects/amazonFrontCrawl/amazonFrontCrawl/spiders/product_listing_spider.py", line 179, in parse
+    percent_5_star = percent_data.decode('utf-8').strip()[:-1]
+AttributeError: 'list' object has no attribute 'decode'
+2017-11-10 12:11:57 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in https://www.amazon.com/dp/B00PIE41SA. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests

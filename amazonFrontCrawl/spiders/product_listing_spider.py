@@ -39,13 +39,17 @@ class ProductlistingSpider(scrapy.Spider):
         )
         self.cursor = self.conn.cursor()
         self.cursor.execute(
-            'SELECT distinct url,asin,ref_id FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "1" ;')
+            'SELECT distinct url,asin,ref_id FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "2" ;')
         rows = self.cursor.fetchall()
+        print(rows)
         for row in rows:
-            yield Request(row[0], callback=self.parse, meta={'ref_id': row[2]})
+            yield Request(row[0], callback=self.parse_product_listing, meta={'ref_id': row[2]})
         self.conn.close()
 
     def parse(self, response):
+        logging.info("productListing parse start .....")
+
+    def parse_product_listing(self, response):
         logging.info('---------------------start parse productListing-------------------------')
 
         ref_id = response.meta['ref_id']
@@ -169,25 +173,17 @@ class ProductlistingSpider(scrapy.Spider):
         product_baseinfo_item["review_avg_star"] = review_avg_star
 
         # percent_data
-        percent_data = se.xpath("//*[@id='histogramTable']//text()")
-        if percent_data:
-            percent_data_lst = percent_data.extract()
-            for i, p in enumerate(percent_data_lst):
-                if i == 1:
-                    percent_5_star = p.encode('utf-8')[:-1]
-                elif i == 3:
-                    percent_4_star = p.encode('utf-8')[:-1]
-                elif i == 5:
-                    percent_3_star = p.encode('utf-8')[:-1]
-                elif i == 7:
-                    percent_2_star = p.encode('utf-8')[:-1]
-                elif i == 9:
-                    percent_1_star = p.encode('utf-8')[:-1]
-            product_baseinfo_item["percent_5_star"] = percent_5_star
-            product_baseinfo_item["percent_4_star"] = percent_4_star
-            product_baseinfo_item["percent_3_star"] = percent_3_star
-            product_baseinfo_item["percent_2_star"] = percent_2_star
-            product_baseinfo_item["percent_1_star"] = percent_1_star
+        percent_xpath = se.xpath("//*[@id='histogramTable']//tr")
+        print("percent_xpath:",percent_xpath)
+        if percent_xpath:
+            for i,percent in enumerate(percent_xpath):
+                percent_data = percent.xpath("./td[3]//text()").extract()
+                print(percent_data)
+                key = "percent_{}_star".format(5-i)
+                if percent_data:
+                    product_baseinfo_item[key] = percent_data[0].decode('utf-8').strip()[:-1]
+                else:
+                    product_baseinfo_item[key] = 0
 
         # cnt_qa
         if se.xpath("//*[@id='askATFLink']/span/text()"):
