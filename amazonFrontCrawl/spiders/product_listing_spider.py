@@ -43,7 +43,7 @@ class ProductlistingSpider(scrapy.Spider):
             "delete from amazon_ref_product_list;"
         )
 
-        cursor.execute(
+        result = self.cursor.execute(
             "insert into amazon_ref_product_list(zone, asin, url, status, crawl_status, ref_id)"
             " select zone"
             "      , asin"
@@ -63,11 +63,11 @@ class ProductlistingSpider(scrapy.Spider):
             " where a.time_id = (select max(time_id) as time_id from amazon_product_insales);"
         )
         self.conn.commit()
-
+        print(result)
         self.cursor.execute(
-            'SELECT distinct url,asin,ref_id FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "2" ;')
+            'SELECT distinct url,asin,ref_id FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "1" ;')
         rows = self.cursor.fetchall()
-        print(rows)
+        print(len(rows))
         for row in rows:
             yield Request(row[0], callback=self.parse_product_listing, meta={'ref_id': row[2]})
         self.conn.close()
@@ -210,6 +210,12 @@ class ProductlistingSpider(scrapy.Spider):
                     product_baseinfo_item[key] = percent_data[0].decode('utf-8').strip()[:-1]
                 else:
                     product_baseinfo_item[key] = 0
+        else:
+            product_baseinfo_item["percent_5_star"] = 0
+            product_baseinfo_item["percent_4_star"] = 0
+            product_baseinfo_item["percent_3_star"] = 0
+            product_baseinfo_item["percent_2_star"] = 0
+            product_baseinfo_item["percent_1_star"] = 0
 
         # cnt_qa
         if se.xpath("//*[@id='askATFLink']/span/text()"):
@@ -490,7 +496,8 @@ class ProductlistingSpider(scrapy.Spider):
         promotion_list = ''
         promotions_xpath = se.xpath("//*[@id='quickPromoBucketContent']//li")
         for promotion in promotions_xpath:
-            promotion_list += promotion.xpath("./text()").extract()[0].encode('utf-8')  #优惠信息
+            if len(promotion.xpath("./text()").extract())>0:
+                promotion_list += promotion.xpath("./text()").extract()[0].encode('utf-8')  #优惠信息
         md5_promotion = hashlib.md5(promotion_list).hexdigest()
         promotion_item = amazon_product_promotions()
         promotion_item["zone"] = zone
