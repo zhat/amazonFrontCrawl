@@ -106,22 +106,22 @@ class Top100SeriesSpider(scrapy.Spider):
             item["batch_number"] = batch_number
             yield item
 
-            # get next page link
-            pagn_next_link = ''
-            pagn_now_link = se.xpath('//li[@class="zg_page zg_selected"]/@id').extract()[0].encode('utf-8')
-            if pagn_now_link <> 'zg_page5':
-                if pagn_now_link == 'zg_page1':
-                    pagn_next_link = 'zg_page2'
-                elif pagn_now_link == 'zg_page2':
-                    pagn_next_link = 'zg_page3'
-                elif pagn_now_link == 'zg_page3':
-                    pagn_next_link = 'zg_page4'
-                elif pagn_now_link == 'zg_page4':
-                    pagn_next_link = 'zg_page5'
+        # get next page link
+        pagn_next_link = ''
+        pagn_now_link = se.xpath('//li[@class="zg_page zg_selected"]/@id').extract()[0].encode('utf-8')
+        if pagn_now_link <> 'zg_page5':
+            if pagn_now_link == 'zg_page1':
+                pagn_next_link = 'zg_page2'
+            elif pagn_now_link == 'zg_page2':
+                pagn_next_link = 'zg_page3'
+            elif pagn_now_link == 'zg_page3':
+                pagn_next_link = 'zg_page4'
+            elif pagn_now_link == 'zg_page4':
+                pagn_next_link = 'zg_page5'
 
-            if pagn_next_link <> '' and len(pagn_next_link) > 0:
-                pagn_next_link_str = se.xpath('//li[@id="' + pagn_next_link + '"]/a/@href').extract()[0].encode('utf-8')
-                yield Request(pagn_next_link_str, callback=self.parse_best_sellers)
+        if pagn_next_link <> '' and len(pagn_next_link) > 0:
+            pagn_next_link_str = se.xpath('//li[@id="' + pagn_next_link + '"]/a/@href').extract()[0].encode('utf-8')
+            yield Request(pagn_next_link_str, callback=self.parse_best_sellers)
 
     def parse_new_releases(self, response):
         logging.info('---------------------start parse new-releases-------------------------')
@@ -158,22 +158,22 @@ class Top100SeriesSpider(scrapy.Spider):
             item["batch_number"] = batch_number
             yield item
 
-            # get next page link
-            pagn_next_link = ''
-            pagn_now_link = se.xpath('//li[@class="zg_page zg_selected"]/@id').extract()[0].encode('utf-8')
-            if pagn_now_link <> 'zg_page5':
-                if pagn_now_link == 'zg_page1':
-                    pagn_next_link = 'zg_page2'
-                elif pagn_now_link == 'zg_page2':
-                    pagn_next_link = 'zg_page3'
-                elif pagn_now_link == 'zg_page3':
-                    pagn_next_link = 'zg_page4'
-                elif pagn_now_link == 'zg_page4':
-                    pagn_next_link = 'zg_page5'
+        # get next page link
+        pagn_next_link = ''
+        pagn_now_link = se.xpath('//li[@class="zg_page zg_selected"]/@id').extract()[0].encode('utf-8')
+        if pagn_now_link <> 'zg_page5':
+            if pagn_now_link == 'zg_page1':
+                pagn_next_link = 'zg_page2'
+            elif pagn_now_link == 'zg_page2':
+                pagn_next_link = 'zg_page3'
+            elif pagn_now_link == 'zg_page3':
+                pagn_next_link = 'zg_page4'
+            elif pagn_now_link == 'zg_page4':
+                pagn_next_link = 'zg_page5'
 
-            if pagn_next_link <> '' and len(pagn_next_link) > 0:
-                pagn_next_link_str = se.xpath('//li[@id="' + pagn_next_link + '"]/a/@href').extract()[0].encode('utf-8')
-                yield Request(pagn_next_link_str, callback=self.parse_new_releases)
+        if pagn_next_link <> '' and len(pagn_next_link) > 0:
+            pagn_next_link_str = se.xpath('//li[@id="' + pagn_next_link + '"]/a/@href').extract()[0].encode('utf-8')
+            yield Request(pagn_next_link_str, callback=self.parse_new_releases)
 
     def parse_most_wished(self, response):
         logging.info('---------------------start parse most-wished-------------------------')
@@ -209,22 +209,22 @@ class Top100SeriesSpider(scrapy.Spider):
             item["batch_number"] = batch_number
             yield item
 
-            # get next page link
-            pagn_next_link = ''
-            pagn_now_link = se.xpath('//li[@class="zg_page zg_selected"]/@id').extract()[0].encode('utf-8')
-            if pagn_now_link <> 'zg_page5':
-                if pagn_now_link == 'zg_page1':
-                    pagn_next_link = 'zg_page2'
-                elif pagn_now_link == 'zg_page2':
-                    pagn_next_link = 'zg_page3'
-                elif pagn_now_link == 'zg_page3':
-                    pagn_next_link = 'zg_page4'
-                elif pagn_now_link == 'zg_page4':
-                    pagn_next_link = 'zg_page5'
+        # get next page link
+        pagn_next_link = ''
+        pagn_now_link = se.xpath('//li[@class="zg_page zg_selected"]/@id').extract()[0].encode('utf-8')
+        if pagn_now_link <> 'zg_page5':
+            if pagn_now_link == 'zg_page1':
+                pagn_next_link = 'zg_page2'
+            elif pagn_now_link == 'zg_page2':
+                pagn_next_link = 'zg_page3'
+            elif pagn_now_link == 'zg_page3':
+                pagn_next_link = 'zg_page4'
+            elif pagn_now_link == 'zg_page4':
+                pagn_next_link = 'zg_page5'
 
-            if pagn_next_link <> '' and len(pagn_next_link) > 0:
-                pagn_next_link_str = se.xpath('//li[@id="' + pagn_next_link + '"]/a/@href').extract()[0].encode('utf-8')
-                yield Request(pagn_next_link_str, callback=self.parse_most_wished)
+        if pagn_next_link <> '' and len(pagn_next_link) > 0:
+            pagn_next_link_str = se.xpath('//li[@id="' + pagn_next_link + '"]/a/@href').extract()[0].encode('utf-8')
+            yield Request(pagn_next_link_str, callback=self.parse_most_wished)
 
     def parse_most_gifted(self, response):
         logging.info('---------------------start parse most-gifted-------------------------')
@@ -260,20 +260,21 @@ class Top100SeriesSpider(scrapy.Spider):
             item["batch_number"] = batch_number
             yield item
 
-            # get next page link
-            pagn_next_link = ''
-            pagn_now_link = se.xpath('//li[@class="zg_page zg_selected"]/@id').extract()[0].encode('utf-8')
-            if pagn_now_link <> 'zg_page5':
-                if pagn_now_link == 'zg_page1':
-                    pagn_next_link = 'zg_page2'
-                elif pagn_now_link == 'zg_page2':
-                    pagn_next_link = 'zg_page3'
-                elif pagn_now_link == 'zg_page3':
-                    pagn_next_link = 'zg_page4'
-                elif pagn_now_link == 'zg_page4':
-                    pagn_next_link = 'zg_page5'
+        # get next page link
+        pagn_next_link = ''
+        pagn_now_link = se.xpath('//li[@class="zg_page zg_selected"]/@id').extract()[0].encode('utf-8')
+        if pagn_now_link <> 'zg_page5':
+            if pagn_now_link == 'zg_page1':
+                pagn_next_link = 'zg_page2'
+            elif pagn_now_link == 'zg_page2':
+                pagn_next_link = 'zg_page3'
+            elif pagn_now_link == 'zg_page3':
+                pagn_next_link = 'zg_page4'
+            elif pagn_now_link == 'zg_page4':
+                pagn_next_link = 'zg_page5'
 
-            if pagn_next_link <> '' and len(pagn_next_link) > 0:
-                pagn_next_link_str = se.xpath('//li[@id="' + pagn_next_link + '"]/a/@href').extract()[0].encode('utf-8')
-                yield Request(pagn_next_link_str, callback=self.parse_most_gifted)
+        if pagn_next_link <> '' and len(pagn_next_link) > 0:
+            pagn_next_link_str = se.xpath('//li[@id="' + pagn_next_link + '"]/a/@href').extract()[0].encode('utf-8')
+            yield Request(pagn_next_link_str, callback=self.parse_most_gifted)
+
 
