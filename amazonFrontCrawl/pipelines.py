@@ -17,9 +17,10 @@ from items import amazon_product_reviews, amazon_product_baseinfo, amazon_produc
 from items import amazon_product_descriptions, amazon_product_pictures, amazon_product_bought_together_list, amazon_product_also_bought_list
 from items import amazon_product_current_reviews, amazon_product_promotions, amazon_traffic_sponsored_products, amazon_traffic_buy_other_after_view
 from items import amazon_traffic_similar_items, amazon_keyword_search_rank, amazon_keyword_search_sponsered,FeedbackItem
-from items import amazon_product_review_percent_info, amazon_product_review_result, amazon_top_reviewers
+from items import amazon_product_review_percent_info, amazon_product_review_result, amazon_top_reviewers,TodayDealItem,TodayDealItem2
 from scrapy.pipelines.files import FilesPipeline
 from scrapy.exceptions import DropItem
+from amazonFrontCrawl import settings
 import scrapy
 import re
 
@@ -46,63 +47,60 @@ class TodayDealsPipeline(object):
        1、在settings.py文件中配置
        2、在自己实现的爬虫类中yield item,会自动执行'''
 
-    def __init__(self, dbpool):
-        self.dbpool = dbpool
-        ''' 这里注释中采用写死在代码中的方式连接线程池，可以从settings配置文件中读取，更加灵活
-            self.dbpool=adbapi.ConnectionPool('MySQLdb',
-                                          host='127.0.0.1',
-                                          db='amazonFrontCrawl',
-                                          user='root',
-                                          passwd='root123',
-                                          cursorclass=MySQLdb.cursors.DictCursor,
-                                          charset='utf8',
-                                          use_unicode=False)'''
-
-    @classmethod
-    def from_settings(cls, settings):
-        '''1、@classmethod声明一个类方法，而对于平常我们见到的则叫做实例方法。
-           2、类方法的第一个参数cls（class的缩写，指这个类本身），而实例方法的第一个参数是self，表示该类的一个实例
-           3、可以通过类来调用，就像C.f()，相当于java中的静态方法'''
-        dbparams = dict(
-            host=settings['MYSQL_HOST'],  # 读取settings中的配置
-            db=settings['MYSQL_DBNAME'],
-            user=settings['MYSQL_USER'],
-            passwd=settings['MYSQL_PASSWD'],
-            charset='utf8',  # 编码要加上，否则可能出现中文乱码问题
-            cursorclass=MySQLdb.cursors.DictCursor,
-            use_unicode=False,
+    def __init__(self):
+        user = settings.MYSQL_USER
+        passwd = settings.MYSQL_PASSWD
+        db = settings.MYSQL_DBNAME
+        host = settings.MYSQL_HOST
+        self.conn = MySQLdb.connect(
+            user=user,
+            passwd=passwd,
+            db=db,
+            host=host,
+            charset="utf8",
+            use_unicode=True
         )
-        dbpool = adbapi.ConnectionPool('MySQLdb', **dbparams)  # **表示将字典扩展为关键字参数,相当于host=xxx,db=yyy....
-        logging.info("connect mysql db ......")
-        return cls(dbpool)  # 相当于dbpool付给了这个类，self中可以得到
-
     # pipeline默认调用
     def process_item(self, item, spider):
-        if isinstance(item, amazon_keyword_search_rank):
-            query = self.dbpool.runInteraction(self._amazon_keyword_search_rank_insert, item)  # 调用插入的方法
-            query.addErrback(self._handle_error, item, spider)  # 调用异常处理方法
-        elif isinstance(item, amazon_keyword_search_sponsered):
-            query = self.dbpool.runInteraction(self._amazon_keyword_search_sponsered_insert, item)  # 调用插入的方法
-            query.addErrback(self._handle_error, item, spider)  # 调用异常处理方法
-        else:
-            pass
-        return item
+        if isinstance(item, TodayDealItem2):
+            self._today_deal_insert2(item)
+
+    def close_spider(self, spider):
+        self.conn.close()
+
+    # amazon_today_deal 写入数据库中
+    def _today_deal_insert2(self,item):
+        dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        sql = "insert into amazon_today_deal(date,zone,asin,page,page_index,deal_url,deal_type,create_time,update_time) " \
+                  "values(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+        #item_list = item["deals"]
+        params = []
+        for item in item["deals"]:
+            params.append((item["date"], item["zone"], item["asin"], item["page"], item["page_index"],
+                      item["deal_url"], item["deal_type"], dt, dt))
+        logging.info("insert data to amazon_keyword_search_sponsered ......")
+        cursor = self.conn.cursor()
+        cursor.executemany(sql, params)
+        self.conn.commit()
+        cursor.close()
+        #tx.execute(sql, params)
 
     # amazon_keyword_search_sponsered 写入数据库中
-    def _amazon_keyword_search_sponsered_insert(self, tx, item):
-        sql = "insert into amazon_keyword_search_sponsered(zone,asin,ref_id,pos_type,page_index,search_rank_index) " \
-              "values(%s,%s,%s,%s,%s,%s)"
-        params = (item["zone"], item["asin"], item["ref_id"], item["pos_type"], item["page_index"], item["search_rank_index"])
+    def _today_deal_insert(self, tx, item):
+        """
+        :param tx:
+        :param item:
+        :return:
+        """
+        dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        sql = "insert into amazon_today_deal(date,zone,asin,page,page_index,deal_url,deal_type,create_time,update_time) " \
+              "values(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+        params = (item["date"],item["zone"], item["asin"], item["page"], item["page_index"],
+                  item["deal_url"], item["deal_type"],dt,dt)
         logging.info("insert data to amazon_keyword_search_sponsered ......")
         tx.execute(sql, params)
 
-    # amazon_keyword_search_rank 写入数据库中
-    def _amazon_keyword_search_rank_insert(self, tx, item):
-        sql = "insert into amazon_keyword_search_rank(zone,asin,ref_id,page_index,sponsored_flag,search_rank_index) " \
-              "values(%s,%s,%s,%s,%s,%s)"
-        params = (item["zone"], item["asin"], item["ref_id"], item["page_index"], item["sponsored_flag"], item["search_rank_index"])
-        logging.info("insert data to amazon_keyword_search_rank ......")
-        tx.execute(sql, params)
+
 
     # 错误处理方法
     def _handle_error(self, failue, item, spider):
@@ -189,15 +187,6 @@ class AmazonTopReviewerPipeline(object):
 
     def __init__(self, dbpool):
         self.dbpool = dbpool
-        ''' 这里注释中采用写死在代码中的方式连接线程池，可以从settings配置文件中读取，更加灵活
-            self.dbpool=adbapi.ConnectionPool('MySQLdb',
-                                          host='127.0.0.1',
-                                          db='amazonFrontCrawl',
-                                          user='root',
-                                          passwd='root123',
-                                          cursorclass=MySQLdb.cursors.DictCursor,
-                                          charset='utf8',
-                                          use_unicode=False)'''
 
     @classmethod
     def from_settings(cls, settings):
@@ -244,6 +233,8 @@ class AmazonTopReviewerPipeline(object):
         print '-------------------------------------------------------------'
         print failue
         print '-------------------------------------------------------------'
+
+
 
 class ProductInsalesPipeline(object):
     '''保存到数据库中对应的class

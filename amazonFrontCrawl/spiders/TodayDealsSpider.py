@@ -1,17 +1,15 @@
+# --*-- coding:utf-8 --*--
+import math
 import scrapy
 import logging
 from scrapy.selector import Selector
-from scrapy.http import HtmlResponse, Request
+from scrapy.http import Request
 import MySQLdb
 from amazonFrontCrawl import settings
 import re
-from tld import get_tld
-from amazonFrontCrawl.items import amazon_keyword_search_rank, amazon_keyword_search_sponsered
-from datetime import datetime
-import ast
 from amazonFrontCrawl.tools.amazonCrawlTools import StringUtilTool
-from scrapy_splash import SplashRequest
-
+from amazonFrontCrawl.items import TodayDealItem,TodayDealItem2
+from datetime import datetime
 
 class TodayDealsSpider(scrapy.Spider):
     name = 'TodayDealsSpider'
@@ -19,7 +17,8 @@ class TodayDealsSpider(scrapy.Spider):
 
     # custom settings , will overwrite the setting in settings.py
     custom_settings = {
-        'ITEM_PIPELINES': {'amazonFrontCrawl.pipelines.TodayDealsPipeline': 300}
+        'ITEM_PIPELINES': {'amazonFrontCrawl.pipelines.TodayDealsPipeline': 300},
+        'CONCURRENT_REQUESTS':1,
     }
 
     def start_requests(self):
@@ -37,7 +36,7 @@ class TodayDealsSpider(scrapy.Spider):
         )
         cursor = conn.cursor()
         cursor.execute(
-            'SELECT distinct url FROM ' + settings.AMAZON_REF_TODAY_DEALS + ' where STATUS = "1" limit 1;'
+            'SELECT distinct url FROM ' + settings.AMAZON_REF_TODAY_DEALS + ' where STATUS = "2" limit 1;'
         )
 
         rows = cursor.fetchall()
@@ -45,14 +44,39 @@ class TodayDealsSpider(scrapy.Spider):
             today_deals_url = row[0]
             print(today_deals_url)
             # yield SplashRequest(today_deals_url, callback=self.parse, args={'wait': 0.5, 'html': 1,})
-            yield self.make_requests_from_url(today_deals_url)
+            request = self.make_requests_from_url(today_deals_url)
+            request.meta['PhantomJS'] = True
+            yield request
         conn.close()
 
     def parse(self, response):
         logging.info("TodayDealsSpider parse start .....")
-
+        se = Selector(response)
         url = response.request.url
-        request = Request(url=url, callback=self.parse_today_deals, dont_filter=True)
+        all_summary = se.xpath('//*[@id="FilterItemView_all_summary"]/div/span[1]/text()').extract()
+        #print(all_summary)
+        pages = 1
+        per_page = 48
+        if all_summary:
+            nums = re.findall(r'Showing 1-(\d{1,2})\s*of\s*(\d+)\s*results\s*for',all_summary[0].encode('utf-8'))
+            print(nums)
+            per_page, total = nums[0]
+            pages = int(math.ceil(float(total) / float(per_page)))
+            print("pages:", pages)
+        # zone
+        zone = StringUtilTool.getZoneFromUrl(url)
+
+        today_date = datetime.now().strftime("%Y-%m-%d")
+        deals_item = self._get_deals_item(se, zone, 1, today_date)
+        yield deals_item
+
+        page = re.findall(r"_page_(\d+)",url)[0]
+        page = int(page)
+        next_page = page+1
+        next_url = url.replace("_page_{}".format(page), "_page_{}".format(next_page))
+        next_url = next_url.replace(",page:{},".format(page), ",page:{},".format(next_page))
+        print(next_url)
+        request = Request(url=next_url, callback=self.parse_today_deals,meta={'page':next_page,'pages':pages}, dont_filter=True)
         request.meta['PhantomJS'] = True
         yield request
 
@@ -62,121 +86,87 @@ class TodayDealsSpider(scrapy.Spider):
 
         se = Selector(response)
         url = response.request.url
-
-        # search page index
-        page_index = self.get_page_index_from_url(url)
+        page = response.meta['page']
+        pages = response.meta['pages']
+        page = int(page)
 
         # zone
         zone = StringUtilTool.getZoneFromUrl(url)
 
-        deal_lst = se.xpath("//*[contains(@id, '100_dealView_')]")
+        today_date = datetime.now().strftime("%Y-%m-%d")
+        deals_item = self._get_deals_item(se,zone,page,today_date)
+        yield deals_item
 
+        next_page = int(page) + 1
+        if next_page <= pages:
+            next_url = url.replace("_page_{}".format(page), "_page_{}".format(next_page))
+            next_url = next_url.replace(",page:{},".format(page), ",page:{},".format(next_page))
+            print(next_url)
+            request = Request(url=next_url, callback=self.parse_today_deals, meta={'page': next_page, 'pages': pages},
+                          dont_filter=True)
+            request.meta['PhantomJS'] = True
+            yield request
+
+
+    def _get_deals_item(self,se,zone,page,date):
+        deal_lst = se.xpath("//div[contains(@id, '100_dealView_')]")
+        print("deal_lst:", len(deal_lst))
+        item_list = []
         for deal in deal_lst:
+            if not deal.xpath("./*"):
+                break
             id_str = deal.xpath("./@id").extract()[0].encode('utf-8')
-            asin = 'un1'
+            index = re.findall(r'100_dealView_(\d{1,2})', id_str)
+            page_index = index[0]
+            # 四种状态Deal of the Day  Lightning Deals  Savings & Sales  Coupons
+            deal_type = ""
+            # DEAL OF THE DAY 为当日交易
+            deal_of_the_day_xpath = './/div/div[2]/div/div/div[1]/div/span[1]/text()'  # 当日交易
+            deal_of_the_day = deal.xpath(deal_of_the_day_xpath).extract()
+            if deal_of_the_day:
+                if deal_of_the_day[0].encode('utf-8') == "DEAL OF THE DAY":
+                    deal_type = "Deal of the Day"
+            print(deal_of_the_day, len(deal_of_the_day), bool(deal_of_the_day))
+
+            # 如果有倒计时 且没有 DEAL OF THE DAY，为限时交易
+            # if deal_clock and not deal_of_the_day  #闪电交易  限时秒杀
+            deal_clock = deal.xpath('.//span[@id="{}_dealClock"]'.format(id_str))  # 倒计时
+            if deal_clock and not deal_type:
+                deal_type = "Lightning Deals"  # 限时秒杀
+
+            # 抢优惠券  优惠券   OFF  Clip coupon  按钮
+            off_xpath = './div/div[2]/div/div/div[2]/div/span'
+            off = deal.xpath('./div/div[2]/div/div/div[2]/div/span').extract()
+            if off and "Off" in off[0]:
+                deal_type = "Coupons"  # 优惠券
+
+            if not deal_type:
+                deal_type = "Savings & Sales"
+            # button显示 文字
+            # button = deal.xpath('.//div[contains(@class,"stackToBottom")]/div/span/span/span//text()').extract()
+            # button_text = ""
+            # if button:
+            #    button_text = button[0].encode('utf-8').strip()
+            #    print(button,button_text)
+
+            # if button_text == "See details":
+            #    '//*[@id="100_dealView_13"]/div/div[2]/div/div/div[5]/div/a'
+
+            # 得到asin
+            asin = ''
             if deal.xpath(".//a[@aria-labelledby='totalReviews']/@href"):
                 asin_str = deal.xpath(".//a[@aria-labelledby='totalReviews']/@href").extract()[0].encode('utf-8')
+                # print(asin_str)
                 asin = re.findall(r"product-reviews/(.+?)/ref=", asin_str)[0]
 
-            image_url = 'un2'
-            if deal.xpath(".//a[@id='dealImage']/@href"):
-                image_url = deal.xpath(".//a[@id='dealImage']/@href").extract()[0].encode('utf-8')
+            deal_url = ""
+            if deal.xpath('.//*[@id="dealImage"]/@href').extract():
+                deal_url = deal.xpath('.//*[@id="dealImage"]/@href').extract()[0]
 
-            print('{}-{}-{}'.format(id_str, asin, image_url))
+            item = {'date': date, 'asin': asin, 'page': page, 'page_index': page_index,
+                    'deal_type': deal_type, 'zone': zone, 'deal_url': deal_url}
+            print(item)
+            item_list.append(item)
+        deals_item = TodayDealItem2(deals=item_list)
 
-        i = 0
-        while i <= 30:
-            t_id = 'result_' + str(i)
-            search_asin_xpath = se.xpath("//*[@id='{}']".format(t_id))
-            if len(search_asin_xpath) > 0:
-                print('{}-{}'.format(i, search_asin_xpath.xpath("./@data-asin").extract()[0].encode('utf-8')))
-
-                # Sponsored
-                sponsored_text_lst = search_asin_xpath.xpath(".//*[contains(text(), 'Sponsored')]")
-                if len(sponsored_text_lst) > 0:
-                    sponsored_flag = 1
-                else:
-                    sponsored_flag = 0
-
-                # asin
-                asin = search_asin_xpath.xpath("./@data-asin").extract()[0].encode('utf-8')
-
-                # ref id
-                ref_id = -1 # default value
-
-                # brand
-                # price
-                # review_star_cnt
-                # review_star_avg
-                # Amazon's Choice Flag
-                # Best Seller Flag
-
-                # search rank index
-                search_rank_index = i
-
-                keyword_search_rank_item = amazon_keyword_search_rank()
-                keyword_search_rank_item["zone"] = zone
-                keyword_search_rank_item["asin"] = asin
-                keyword_search_rank_item["ref_id"] = ref_id
-                keyword_search_rank_item["page_index"] = page_index
-                keyword_search_rank_item["sponsored_flag"] = sponsored_flag
-                keyword_search_rank_item["search_rank_index"] = search_rank_index
-                yield keyword_search_rank_item
-
-            else:
-                break
-            i += 1
-
-        # sponsered right part
-        sponsered_right_part_xpath = se.xpath("//*[@id='desktop-rhs-carousels_click_within_right']//div[contains(@class, 'pa-ad-details')]")
-        if sponsered_right_part_xpath:
-            for t_i, t_xpath in enumerate(sponsered_right_part_xpath):
-                t_url = t_xpath.xpath("./div/a/@href").extract()[0].encode('utf-8')
-                t_asin = re.findall("%2Fdp%2F(.+)%2Fref%3D", t_url)[0]
-                t_index = t_i
-                t_ref_id = -1 # default value
-
-                sponsored_right_item = amazon_keyword_search_sponsered()
-                sponsored_right_item["zone"] = zone
-                sponsored_right_item["asin"] = t_asin
-                sponsored_right_item["ref_id"] = t_ref_id
-                sponsored_right_item["pos_type"] = 'right'
-                sponsored_right_item["page_index"] = page_index
-                sponsored_right_item["search_rank_index"] = t_index
-                yield sponsored_right_item
-
-
-        # sponsered up part
-        sponsored_asin_up_xpath = se.xpath("//*[@id='pdagDesktopSparkleAsinsContainer']//a/@href")
-        if sponsored_asin_up_xpath:
-            for t_i, t_xpath in enumerate(sponsored_asin_up_xpath):
-                t_url = t_xpath.extract().encode('utf-8')
-                t_asin = re.findall("/dp/(.+)\?", t_url)[0]
-                t_index = t_i
-                t_ref_id = -1 # default value
-
-                sponsored_up_item = amazon_keyword_search_sponsered()
-                sponsored_up_item["zone"] = zone
-                sponsored_up_item["asin"] = t_asin
-                sponsored_up_item["ref_id"] = t_ref_id
-                sponsored_up_item["pos_type"] = 'up'
-                sponsored_up_item["page_index"] = page_index
-                sponsored_up_item["search_rank_index"] = t_index
-                yield sponsored_up_item
-
-
-        # get next page link
-        pagn_next_link_yes = se.xpath("//*[@id='pagnNextLink']/@href")
-
-        if len(pagn_next_link_yes) > 0:
-            pagn_next_link = pagn_next_link_yes.extract()[0].encode('utf-8')
-            pagn_next_link_str = StringUtilTool.zone_to_domain(zone) + pagn_next_link
-            yield Request(pagn_next_link_str, callback=self.parse)
-
-
-    def get_page_index_from_url(self, url):
-        try:
-            page_index = re.findall('&page=(.+)&keywords=', url.extract()[0].encode('utf-8'))[0]
-            return int(page_index)
-        except Exception as e:
-            return 1
+        return deals_item

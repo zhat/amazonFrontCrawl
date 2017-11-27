@@ -316,8 +316,7 @@ class amazon_product_offers_catch(scrapy.Item):
 # ############################test############################
 class EtaoItem(object):
     name = scrapy.Field()
-    url  = scrapy.Field()
-
+    url = scrapy.Field()
 
 class FeedbackItem(scrapy.Item):
     date = scrapy.Field()
@@ -329,3 +328,17 @@ class FeedbackItem(scrapy.Item):
     lifetime = scrapy.Field()
     create_time = scrapy.Field()
     update_time = scrapy.Field()
+
+
+class TodayDealItem(scrapy.Item):
+    date = scrapy.Field()
+    zone = scrapy.Field()
+    asin = scrapy.Field()
+    page = scrapy.Field()
+    page_index = scrapy.Field()
+    deal_url = scrapy.Field()
+    deal_type = scrapy.Field()
+    create_time = scrapy.Field()
+    update_time = scrapy.Field()
+class TodayDealItem2(scrapy.Item):
+    deals = scrapy.Field()
