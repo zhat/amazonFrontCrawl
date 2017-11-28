@@ -8,7 +8,7 @@ from scrapy import cmdline
 
 # cmdline.execute("scrapy crawl ProductReviewSpider".split()) # run test result : success
 
-# cmdline.execute("scrapy crawl product_listing".split()) # run test result : success
+cmdline.execute("scrapy crawl product_listing".split()) # run test result : success
 
 # cmdline.execute("scrapy crawl KeywordSearchSpider".split())
 
@@ -16,7 +16,7 @@ from scrapy import cmdline
 
 # cmdline.execute("scrapy crawl AmazonTopReviewer -a zone=ca".split())
 
-cmdline.execute("scrapy crawl TodayDealsSpider".split())
+# cmdline.execute("scrapy crawl TodayDealsSpider".split())
 
 # cmdline.execute("scrapy crawl OffersCatchSpider".split())
 

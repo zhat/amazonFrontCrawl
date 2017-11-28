@@ -62,6 +62,26 @@ class ProductlistingSpider(scrapy.Spider):
             "  from amazon_product_insales a"
             " where a.time_id = (select max(time_id) as time_id from amazon_product_insales);"
         )
+        print(result)
+        result = self.cursor.execute(
+            "insert into amazon_ref_product_list(zone, asin, url, status, crawl_status, ref_id)"
+            " select zone"
+            "      , competitive_product_asin"
+            "      , case when zone = 'us' then concat('http://www.amazon.com/dp/', competitive_product_asin) "
+            "             when zone = 'uk' then concat('http://www.amazon.com.uk/dp/', competitive_product_asin) "
+            "             when zone = 'de' then concat('http://www.amazon.de/dp/', competitive_product_asin) "
+            "             when zone = 'jp' then concat('http://www.amazon.jp/dp/', competitive_product_asin) "
+            "             when zone = 'ca' then concat('http://www.amazon.ca/dp/', competitive_product_asin) "
+            "             when zone = 'es' then concat('http://www.amazon.es/dp/', competitive_product_asin) "
+            "             when zone = 'it' then concat('http://www.amazon.it/dp/', competitive_product_asin) "
+            "             when zone = 'fr' then concat('http://www.amazon.fr/dp/', competitive_product_asin) "
+            "         end as url"
+            "      , 1"
+            "      , 0"
+            "      , id"
+            "  from report_competitiveproduct a"
+            " where a.competitive_product_asin != '';"
+        )
         self.conn.commit()
         print(result)
         self.cursor.execute(
@@ -207,7 +227,11 @@ class ProductlistingSpider(scrapy.Spider):
                 print(percent_data)
                 key = "percent_{}_star".format(5-i)
                 if percent_data:
-                    product_baseinfo_item[key] = percent_data[0].decode('utf-8').strip()[:-1]
+                    star = percent_data[0].decode('utf-8').strip()[:-1]
+                    if star:
+                        product_baseinfo_item[key] = star
+                    else:
+                        product_baseinfo_item[key] = 0
                 else:
                     product_baseinfo_item[key] = 0
         else:
@@ -569,3 +593,4 @@ class ProductlistingSpider(scrapy.Spider):
         similar_item_item["product_list"] = similar_item_lst   #类似商品 asin,asin,asin,asin
         similar_item_item["ref_id"] = ref_id  # default value
         yield similar_item_item
+
