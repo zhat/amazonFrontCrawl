@@ -130,15 +130,15 @@ class ProductlistingSpider(scrapy.Spider):
         product_baseinfo_item["seller_url"] = seller_url
 
         # brand
-        if se.xpath("//*[@id='bylineInfo_feature_div']/text()"):
-            brand = se.xpath("//*[@id='bylineInfo_feature_div']/text()").extract()[0].encode('utf-8')
+        if se.xpath("//*[@id='bylineInfo']/text()"):
+            brand = se.xpath("//*[@id='bylineInfo']/text()").extract()[0].encode('utf-8')
         else:
             brand = 'Unknown'
         product_baseinfo_item["brand"] = brand
 
         # brand_url
-        if se.xpath("//*[@id='bylineInfo_feature_div']/@href"):
-            brand_url = se.xpath("//*[@id='bylineInfo_feature_div']/@href").extract()[0].encode('utf-8')
+        if se.xpath("//*[@id='bylineInfo']/@href"):
+            brand_url = se.xpath("//*[@id='bylineInfo']/@href").extract()[0].encode('utf-8')
         else:
             brand_url = 'Unknown'
         product_baseinfo_item["brand_url"] = brand_url
@@ -535,21 +535,22 @@ class ProductlistingSpider(scrapy.Spider):
 
         # ------- amazon_traffic_sponsored_products_1 -------
         sponsored_xpath = se.xpath("//*[@id='sp_detail']/@data-a-carousel-options")
-        sponsored_lst = re.findall('initialSeenAsins(.+)circular', sponsored_xpath.extract()[0].encode('utf-8'))[
+        if sponsored_xpath.extract() and re.findall('initialSeenAsins(.+)circular',
+                                                    sponsored_xpath.extract()[0].encode('utf-8')):
+            sponsored_lst = re.findall('initialSeenAsins(.+)circular', sponsored_xpath.extract()[0].encode('utf-8'))[
                 0].replace('\\"', '').replace('"', '').replace(
                 ' ', '').replace(':', '')                                              #与本项目有关的商品1
-        sponsored_item = amazon_traffic_sponsored_products()
-        sponsored_item["zone"] = zone
-        sponsored_item["asin"] = asin
-        sponsored_item["type"] = 1
-        sponsored_item["product_list"] = sponsored_lst
-        sponsored_item["ref_id"] = ref_id  # default value
-        yield sponsored_item
+            sponsored_item = amazon_traffic_sponsored_products()
+            sponsored_item["zone"] = zone
+            sponsored_item["asin"] = asin
+            sponsored_item["type"] = 1
+            sponsored_item["product_list"] = sponsored_lst
+            sponsored_item["ref_id"] = ref_id  # default value
+            yield sponsored_item
 
         # ------- amazon_traffic_sponsored_products_2 -------
         sponsored_xpath = se.xpath("//*[@id='sp_detail2']/@data-a-carousel-options")  #与本项目有关的赞助产品2
         sponsoreds = sponsored_xpath.extract()
-        print(497,sponsoreds)
         if sponsoreds:
             if re.findall('initialSeenAsins(.+)circular',sponsoreds[0]):
                 sponsored_lst = re.findall('initialSeenAsins(.+)circular',sponsoreds[0])[0].replace('\\"', '').\
