@@ -80,7 +80,7 @@ class ProductlistingSpider(scrapy.Spider):
             "      , 0"
             "      , id"
             "  from report_competitiveproduct a"
-            " where a.competitive_product_asin != '';"
+            " where a.competitive_product_asin != '' AND a.zone = 'US';"
         )
         self.conn.commit()
         print(result)
@@ -130,15 +130,15 @@ class ProductlistingSpider(scrapy.Spider):
         product_baseinfo_item["seller_url"] = seller_url
 
         # brand
-        if se.xpath("//*[@id='bylineInfo']/text()"):
-            brand = se.xpath("//*[@id='bylineInfo']/text()").extract()[0].encode('utf-8')
+        if se.xpath("//*[@id='bylineInfo_feature_div']/text()"):
+            brand = se.xpath("//*[@id='bylineInfo_feature_div']/text()").extract()[0].encode('utf-8')
         else:
             brand = 'Unknown'
         product_baseinfo_item["brand"] = brand
 
         # brand_url
-        if se.xpath("//*[@id='bylineInfo']/@href"):
-            brand_url = se.xpath("//*[@id='bylineInfo']/@href").extract()[0].encode('utf-8')
+        if se.xpath("//*[@id='bylineInfo_feature_div']/@href"):
+            brand_url = se.xpath("//*[@id='bylineInfo_feature_div']/@href").extract()[0].encode('utf-8')
         else:
             brand_url = 'Unknown'
         product_baseinfo_item["brand_url"] = brand_url
@@ -171,9 +171,11 @@ class ProductlistingSpider(scrapy.Spider):
         product_baseinfo_item["category_name"] = category_name
 
         # in_sale_price
-        if se.xpath("//*[@id='priceblock_saleprice']/text()"):
+        # "priceblock_ourprice"  priceblock_saleprice
+        if se.xpath("//*[@id='priceblock_ourprice']/text()"):
             in_sale_price = float('%.2f' % float(
-                    se.xpath("//*[@id='priceblock_saleprice']/text()").extract()[0].encode('utf-8').replace('$', '')))
+                    se.xpath("//*[@id='priceblock_ourprice']/text()").extract()[0].encode('utf-8').replace('$', '')))
+            print("in_sale_price",in_sale_price)
         elif se.xpath("//*[@id='priceblock_dealprice']/text()"):
             in_sale_price = float('%.2f' % float(
                     se.xpath("//*[@id='priceblock_dealprice']/text()").extract()[0].encode('utf-8').replace('$', '')))
