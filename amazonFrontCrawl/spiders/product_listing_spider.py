@@ -59,8 +59,8 @@ class ProductlistingSpider(scrapy.Spider):
             "      , 1"
             "      , 0"
             "      , id"
-            "  from amazon_product_insales a"
-            " where a.time_id = (select max(time_id) as time_id from amazon_product_insales);"
+            "  from report_productinfo a"
+            " where a.zone='US' AND a.date = (select max(date) from report_productinfo);"
         )
         print(result)
         result = self.cursor.execute(

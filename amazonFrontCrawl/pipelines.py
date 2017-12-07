@@ -17,13 +17,12 @@ from items import amazon_product_reviews, amazon_product_baseinfo, amazon_produc
 from items import amazon_product_descriptions, amazon_product_pictures, amazon_product_bought_together_list, amazon_product_also_bought_list
 from items import amazon_product_current_reviews, amazon_product_promotions, amazon_traffic_sponsored_products, amazon_traffic_buy_other_after_view
 from items import amazon_traffic_similar_items, amazon_keyword_search_rank, amazon_keyword_search_sponsered,FeedbackItem
-from items import amazon_product_review_percent_info, amazon_product_review_result, amazon_top_reviewers,TodayDealItem,TodayDealItem2
+from items import amazon_product_review_percent_info, amazon_product_review_result, amazon_top_reviewers,TodayDealItem
 from scrapy.pipelines.files import FilesPipeline
 from scrapy.exceptions import DropItem
 from amazonFrontCrawl import settings
 import scrapy
 import re
-
 
 class JsonWithEncodingPipeline(object):
     '''保存到文件中对应的class
@@ -62,14 +61,14 @@ class TodayDealsPipeline(object):
         )
     # pipeline默认调用
     def process_item(self, item, spider):
-        if isinstance(item, TodayDealItem2):
-            self._today_deal_insert2(item)
+        if isinstance(item, TodayDealItem):
+            self._today_deal_insert(item)
 
     def close_spider(self, spider):
         self.conn.close()
 
     # amazon_today_deal 写入数据库中
-    def _today_deal_insert2(self,item):
+    def _today_deal_insert(self,item):
         dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         sql = "insert into amazon_today_deal(date,zone,asin,page,page_index,deal_url,deal_type,create_time,update_time) " \
                   "values(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
@@ -84,23 +83,6 @@ class TodayDealsPipeline(object):
         self.conn.commit()
         cursor.close()
         #tx.execute(sql, params)
-
-    # amazon_keyword_search_sponsered 写入数据库中
-    def _today_deal_insert(self, tx, item):
-        """
-        :param tx:
-        :param item:
-        :return:
-        """
-        dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        sql = "insert into amazon_today_deal(date,zone,asin,page,page_index,deal_url,deal_type,create_time,update_time) " \
-              "values(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-        params = (item["date"],item["zone"], item["asin"], item["page"], item["page_index"],
-                  item["deal_url"], item["deal_type"],dt,dt)
-        logging.info("insert data to amazon_keyword_search_sponsered ......")
-        tx.execute(sql, params)
-
-
 
     # 错误处理方法
     def _handle_error(self, failue, item, spider):

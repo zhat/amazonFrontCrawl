@@ -8,7 +8,7 @@ import MySQLdb
 from amazonFrontCrawl import settings
 import re
 from amazonFrontCrawl.tools.amazonCrawlTools import StringUtilTool
-from amazonFrontCrawl.items import TodayDealItem,TodayDealItem2
+from amazonFrontCrawl.items import TodayDealItem
 from datetime import datetime
 
 class TodayDealsSpider(scrapy.Spider):
@@ -167,6 +167,6 @@ class TodayDealsSpider(scrapy.Spider):
                     'deal_type': deal_type, 'zone': zone, 'deal_url': deal_url}
             print(item)
             item_list.append(item)
-        deals_item = TodayDealItem2(deals=item_list)
+        deals_item = TodayDealItem(deals=item_list)
 
         return deals_item

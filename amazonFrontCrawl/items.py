@@ -331,14 +331,4 @@ class FeedbackItem(scrapy.Item):
 
 
 class TodayDealItem(scrapy.Item):
-    date = scrapy.Field()
-    zone = scrapy.Field()
-    asin = scrapy.Field()
-    page = scrapy.Field()
-    page_index = scrapy.Field()
-    deal_url = scrapy.Field()
-    deal_type = scrapy.Field()
-    create_time = scrapy.Field()
-    update_time = scrapy.Field()
-class TodayDealItem2(scrapy.Item):
     deals = scrapy.Field()
