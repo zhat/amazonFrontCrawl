@@ -724,22 +724,26 @@ class ProductReviewPipeline(object):
     def _amazon_product_reviews_insert(self, tx, item):
         # print item['name']
         dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-        sql = "insert into amazon_product_reviews(zone, asin, ref_id, review_id, review_url, review_title, review_text, reviewer_name, reviewer_url, review_date, item_package_quantity, " \
+        sql = "SELECT id FROM `amazon_product_reviews` WHERE review_id='%s' AND zone='%s' ;"%(item["review_id"],item['zone'])
+        tx.execute(sql)
+        if not tx.fetchall():
+            sql = "insert into amazon_product_reviews(zone, asin, ref_id, review_id, review_url, review_title, review_text, reviewer_name, reviewer_url, review_date, item_package_quantity, " \
               "item_color_size_info, order_index, review_star," \
-        "is_verified_purchase, votes, comments, top_reviewer_info, cnt_imgs, cnt_vedios, create_date) " \
-              "values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-        # print('test' * 18)
-        # print(item["review_star"])
-        params = (item["zone"], item["asin"], item["ref_id"], item["review_id"], item["review_url"], item["review_title"],
+                "is_verified_purchase, votes, comments, top_reviewer_info, cnt_imgs, cnt_vedios, create_date) " \
+                "values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            # print('test' * 18)
+            # print(item["review_star"])
+            params = (item["zone"], item["asin"], item["ref_id"], item["review_id"], item["review_url"], item["review_title"],
                   item["review_text"], item["reviewer_name"], item["reviewer_url"], item["review_date"], item["item_package_quantity"],
                   item["item_color_size_info"], item["order_index"], item["review_star"], item["is_verified_purchase"], item["votes"],
                   item["comments"], item["top_reviewer_info"], item["cnt_imgs"], item["cnt_vedios"]
                   , dt)
-        print("insert data to amazon_product_reviews ......%s") % item["asin"]
-        logging.info("insert data to amazon_product_reviews ......")
-        tx.execute(sql, params)
-        print("insert data into amazon_product_reviews success ......")
+            print("insert data to amazon_product_reviews ......%s") % item["asin"]
+            logging.info("insert data to amazon_product_reviews ......")
+            tx.execute(sql, params)
+            print("insert data into amazon_product_reviews success ......")
+        else:
+            print("This data has already existed in the database without repeated inserts......")
 
     # amazon_product_review_percent_info 写入数据库中
     def _amazon_product_review_percent_info_insert(self, tx, item):

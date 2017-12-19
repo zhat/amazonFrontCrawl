@@ -60,7 +60,7 @@ class ProductlistingSpider(scrapy.Spider):
             "      , 0"
             "      , id"
             "  from report_productinfo a"
-            " where a.zone='US' AND a.date = (select max(date) from report_productinfo);"
+            " where a.zone='US' AND a.asin!='' AND a.date = (select max(date) from report_productinfo);"
         )
         print(result)
         result = self.cursor.execute(
@@ -416,108 +416,6 @@ class ProductlistingSpider(scrapy.Spider):
             also_bought_item["ref_id"] = ref_id  # default value
             yield also_bought_item
 
-        # ------- amazon_product_current_reviews type:top-------
-        top_customer_reviews = se.xpath(
-                "//div[@id='cm-cr-dp-review-list']/div[@data-hook='review']")  # top-customer-reviews-widget 置顶客户评论
-        if top_customer_reviews:
-                # top_customer_reviews_lst = top_customer_reviews.extract()
-            for i, r in enumerate(top_customer_reviews):
-                review_id = r.xpath("./@id").extract()[0].encode('utf-8')
-                top_review = amazon_product_current_reviews()
-                top_review["zone"] = zone
-                top_review["asin"] = asin
-                top_review["ref_id"] = ref_id  # default value
-                top_review["review_order_type"] = 'top'
-                top_review["order_index"] = i + 1
-
-                top_review["review_star"] = \
-                        r.xpath(".//i[@data-hook='review-star-rating']/span/text()").extract()[0].encode(
-                                'utf-8').split(' out of ')[0]
-
-                if r.xpath(".//span[@data-hook='avp-badge-linkless']/text()").extract():
-                    if r.xpath(".//span[@data-hook='avp-badge-linkless']/text()").extract()[0].encode('utf-8') == 'Verified Purchase':
-                        top_review["is_verified_purchase"] = 1
-                    else:
-                        top_review["is_verified_purchase"] = 0
-                else:
-                    top_review["is_verified_purchase"] = 0
-
-                votes_ = r.xpath(".//span[@data-hook='helpful-vote-statement']/text()")
-                if votes_:
-                    votes_str = votes_.extract()[0].encode('utf-8')
-                    top_review["votes"] = re.sub("\D", "", votes_str) if re.sub("\D", "", votes_str) else 0
-                else:
-                    top_review["votes"] = 0
-                is_top_review=r.xpath(
-                    ".//span[@class='a-size-mini a-color-link c7yBadgeAUI c7yTopDownDashedStrike c7y-badge-text a-text-bold']/text()")
-                if is_top_review:
-                    top_review["is_top_reviewer"] = is_top_review.extract()[0].encode('utf-8')
-                else:
-                    top_review["is_top_reviewer"] = ""
-
-                top_review["cnt_imgs"] = 0
-                images_list = r.xpath(".//img")
-                cnt_imgs = len(images_list)
-                top_review["cnt_imgs"] = cnt_imgs
-
-                top_review["cnt_vedios"] = 0
-                video_id = 'videl-block-' + review_id
-                video_path = './/div[@id="%s"]' % video_id
-                video_list = r.xpath(video_path)
-                cnt_vedios = len(video_list)
-                top_review["cnt_vedios"] = cnt_vedios
-
-                yield top_review
-
-        # ------- amazon_product_current_reviews type:recent-------
-        recent_customer_reviews = se.xpath(
-                "//div[@id='most-recent-reviews-content']/div[@data-hook='recent-review']")  # 最近的客户评论
-        if recent_customer_reviews:
-            for i, r in enumerate(recent_customer_reviews):
-                review_id = r.xpath("./@id").extract()[0].encode('utf-8')
-                recent_review = amazon_product_current_reviews()
-                recent_review["zone"] = zone
-                recent_review["asin"] = asin
-                recent_review["ref_id"] = ref_id  # default value
-                recent_review["review_order_type"] = 'recent'
-                recent_review["order_index"] = i + 1
-
-                recent_review["review_star"] = \
-                        r.xpath(".//i[@data-hook='review-star-rating-recent']/span/text()").extract()[0].encode(
-                                'utf-8').split(' out of ')[0]
-
-                if r.xpath(".//span[@data-hook='avp-badge-linkless']/text()").extract():
-                    if r.xpath(".//span[@data-hook='avp-badge-linkless']/text()").extract()[0].encode(
-                                    'utf-8') == 'Verified Purchase':
-                        recent_review["is_verified_purchase"] = 1
-                else:
-                    recent_review["is_verified_purchase"] = 0
-
-                votes_ = r.xpath(".//span[@data-hook='helpful-vote-statement']/text()")
-                if votes_:
-                    votes_str = votes_.extract()[0].encode('utf-8')
-                    recent_review["votes"] = re.sub("\D", "", votes_str) if re.sub("\D", "", votes_str) else 0
-                else:
-                    recent_review["votes"] = 0
-                is_top_reviewer = r.xpath(
-                        ".//span[@class='a-size-mini a-color-link c7yBadgeAUI c7yTopDownDashedStrike c7y-badge-text a-text-bold']/text()").extract()
-                if is_top_reviewer:
-                    recent_review["is_top_reviewer"] = is_top_reviewer[0].encode('utf-8')
-                else:
-                    recent_review["is_top_reviewer"] = ""
-                recent_review["cnt_imgs"] = 0
-                images_list = r.xpath(".//img")
-                cnt_imgs = len(images_list)
-                recent_review["cnt_imgs"] = cnt_imgs
-
-                recent_review["cnt_vedios"] = 0
-                video_id = 'videl-block-' + review_id
-                video_path = './/div[@id="%s"]' % video_id
-                video_list = r.xpath(video_path)
-                cnt_vedios = len(video_list)
-                recent_review["cnt_vedios"] = cnt_vedios
-
-                yield recent_review
         # ------- amazon_product_promotions -------
         promotion_list = ''
         promotions_xpath = se.xpath("//*[@id='quickPromoBucketContent']//li")

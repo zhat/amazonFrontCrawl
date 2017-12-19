@@ -1,14 +1,16 @@
 # coding:utf-8
 
 from scrapy import cmdline
+from datetime import datetime
 
+print(datetime.now())
 # cmdline.execute("scrapy crawlall ".split())
 
 # cmdline.execute("scrapy crawl getShopProducts".split()) # run test result : success
 
-# cmdline.execute("scrapy crawl ProductReviewSpider".split()) # run test result : success
+cmdline.execute("scrapy crawl ProductReviewSpider".split()) # run test result : success
 
-cmdline.execute("scrapy crawl product_listing".split()) # run test result : success
+# cmdline.execute("scrapy crawl product_listing".split()) # run test result : success
 
 # cmdline.execute("scrapy crawl KeywordSearchSpider".split())
 
@@ -22,3 +24,4 @@ cmdline.execute("scrapy crawl product_listing".split()) # run test result : succ
 
 # cmdline.execute("scrapy crawl feedback".split())
 
+print(datetime.now())
