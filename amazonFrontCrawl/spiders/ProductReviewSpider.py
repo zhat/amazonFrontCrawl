@@ -65,7 +65,7 @@ class ProductReviewSpider(scrapy.Spider):
         # print("review_list:",review_list)
         if not review_list:
             file_name = "{}_{}_{}.html".format(asin,page,datetime.now().strftime("%Y%m%d_%H%M%S_%f"))
-            file_path = os.path.join('.','err_html',file_name)
+            file_path = os.path.join(settings.FILES_STORE,file_name)
             # print(file_path)
             with open(file_path,'w') as f:
                 f.write(se.extract())
