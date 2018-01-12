@@ -6,7 +6,6 @@ from scrapy.http import Request
 import MySQLdb
 from amazonFrontCrawl import settings
 import re
-from tld import get_tld
 from amazonFrontCrawl.items import amazon_product_reviews
 from datetime import datetime
 

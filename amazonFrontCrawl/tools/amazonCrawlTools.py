@@ -20,7 +20,7 @@ class StringUtilTool(object):
     def zone_to_domain(zone):
         switcher = {
             'US': 'https://www.amazon.com',
-            'UK': 'https://www.amazon.com.uk',
+            'UK': 'https://www.amazon.co.uk',
             'DE': 'https://www.amazon.de',
             'JP': 'https://www.amazon.jp',
             'CA': 'https://www.amazon.ca',
@@ -34,7 +34,7 @@ class StringUtilTool(object):
     def domain_to_zone(domain):
         switcher = {
             'amazon.com': 'US',
-            'com.uk': 'UK',
+            'co.uk': 'UK',
             'amazon.de': 'DE',
             'amazon.jp': 'JP',
             'amazon.ca': 'CA',
