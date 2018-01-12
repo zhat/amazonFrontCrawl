@@ -8,9 +8,11 @@ print(datetime.now())
 
 # cmdline.execute("scrapy crawl getShopProducts".split()) # run test result : success
 
-cmdline.execute("scrapy crawl ProductReviewSpider".split()) # run test result : success
+# cmdline.execute("scrapy crawl product".split()) # run test result : success
 
-# cmdline.execute("scrapy crawl product_listing".split()) # run test result : success
+#cmdline.execute("scrapy crawl ProductReviewSpider".split()) # run test result : success
+
+cmdline.execute("scrapy crawl product_listing".split()) # run test result : success
 
 # cmdline.execute("scrapy crawl KeywordSearchSpider".split())
 

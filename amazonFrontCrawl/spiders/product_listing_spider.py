@@ -2,10 +2,13 @@
 import scrapy
 import logging
 from scrapy.selector import Selector
-from amazonFrontCrawl.items import amazon_product_baseinfo, amazon_product_technical_details, amazon_product_category_sales_rank, amazon_product_descriptions, amazon_product_pictures
-from amazonFrontCrawl.items import amazon_product_bought_together_list, amazon_product_also_bought_list, amazon_product_current_reviews
-from amazonFrontCrawl.items import amazon_product_promotions, amazon_traffic_sponsored_products, amazon_traffic_buy_other_after_view, amazon_traffic_similar_items
-from scrapy.http import HtmlResponse,Request
+from amazonFrontCrawl.items import amazon_product_baseinfo, amazon_product_technical_details, \
+    amazon_product_category_sales_rank, amazon_product_descriptions, amazon_product_pictures
+from amazonFrontCrawl.items import amazon_product_bought_together_list, amazon_product_also_bought_list, \
+    amazon_product_current_reviews
+from amazonFrontCrawl.items import amazon_product_promotions, amazon_traffic_sponsored_products, \
+    amazon_traffic_buy_other_after_view, amazon_traffic_similar_items
+from scrapy.http import HtmlResponse, Request
 import MySQLdb
 from amazonFrontCrawl import settings
 import re
@@ -13,6 +16,7 @@ from amazonFrontCrawl.tools.amazonCrawlTools import StringUtilTool
 import ast
 import hashlib
 import json
+
 
 class ProductlistingSpider(scrapy.Spider):
     name = "product_listing"
@@ -48,7 +52,7 @@ class ProductlistingSpider(scrapy.Spider):
             " select zone"
             "      , asin"
             "      , case when zone = 'us' then concat('http://www.amazon.com/dp/', asin) "
-            "             when zone = 'uk' then concat('http://www.amazon.com.uk/dp/', asin) "
+            "             when zone = 'uk' then concat('http://www.amazon.co.uk/dp/', asin) "
             "             when zone = 'de' then concat('http://www.amazon.de/dp/', asin) "
             "             when zone = 'jp' then concat('http://www.amazon.jp/dp/', asin) "
             "             when zone = 'ca' then concat('http://www.amazon.ca/dp/', asin) "
@@ -60,7 +64,7 @@ class ProductlistingSpider(scrapy.Spider):
             "      , 0"
             "      , id"
             "  from report_productinfo a"
-            " where a.zone='US' AND a.asin!='' AND a.date = (select max(date) from report_productinfo);"
+            " where a.asin!='' AND a.date = (select max(date) from report_productinfo);"
         )
         print(result)
         result = self.cursor.execute(
@@ -68,7 +72,7 @@ class ProductlistingSpider(scrapy.Spider):
             " select zone"
             "      , competitive_product_asin"
             "      , case when zone = 'us' then concat('http://www.amazon.com/dp/', competitive_product_asin) "
-            "             when zone = 'uk' then concat('http://www.amazon.com.uk/dp/', competitive_product_asin) "
+            "             when zone = 'uk' then concat('http://www.amazon.co.uk/dp/', competitive_product_asin) "
             "             when zone = 'de' then concat('http://www.amazon.de/dp/', competitive_product_asin) "
             "             when zone = 'jp' then concat('http://www.amazon.jp/dp/', competitive_product_asin) "
             "             when zone = 'ca' then concat('http://www.amazon.ca/dp/', competitive_product_asin) "
@@ -80,16 +84,16 @@ class ProductlistingSpider(scrapy.Spider):
             "      , 0"
             "      , id"
             "  from report_competitiveproduct a"
-            " where a.competitive_product_asin != '' AND a.zone = 'US';"
+            " where a.competitive_product_asin != '';"
         )
         self.conn.commit()
         print(result)
         self.cursor.execute(
-            'SELECT distinct url,asin,ref_id FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "1" ;')
+            'SELECT distinct url,asin,ref_id,zone FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "1";')
         rows = self.cursor.fetchall()
         print(len(rows))
         for row in rows:
-            yield Request(row[0], callback=self.parse_product_listing, meta={'ref_id': row[2]})
+            yield Request(row[0], callback=self.parse_product_listing, meta={'ref_id': row[2],'zone':row[3],'asin':row[1]})
         self.conn.close()
 
     def parse(self, response):
@@ -99,21 +103,18 @@ class ProductlistingSpider(scrapy.Spider):
         logging.info('---------------------start parse productListing-------------------------')
 
         ref_id = response.meta['ref_id']
-        
+        zone = response.meta['zone']
+        asin = response.meta['asin']
         se = Selector(response)
-        url = response.request.url
 
         product_baseinfo_item = amazon_product_baseinfo()
 
         # ------- amazon_product_baseinfo -------
-        zone = StringUtilTool.getZoneFromUrl(url)  # modify
         product_baseinfo_item["zone"] = zone
-
-        asin = url.split('/')[-1]
 
         product_baseinfo_item["asin"] = asin
 
-        product_baseinfo_item["ref_id"] = ref_id # default value
+        product_baseinfo_item["ref_id"] = ref_id  # default value
 
         # seller_name
         if se.xpath("//*[@id='merchant-info']/a[1]/text()"):
@@ -154,7 +155,7 @@ class ProductlistingSpider(scrapy.Spider):
         # stock_situation stop here
         if se.xpath("normalize-space(//*[@id='availability']/span/text())"):
             stock_situation = se.xpath("normalize-space(//*[@id='availability']/span/text())").extract()[0].encode(
-                    'utf-8')
+                'utf-8')
         else:
             stock_situation = 'Unknown'
         product_baseinfo_item["stock_situation"] = stock_situation
@@ -162,41 +163,58 @@ class ProductlistingSpider(scrapy.Spider):
         # category_name
         if se.xpath("//*[@id='wayfinding-breadcrumbs_feature_div']//a[@class='a-link-normal a-color-tertiary']"):
             category_name_list = se.xpath(
-                    "//*[@id='wayfinding-breadcrumbs_feature_div']//a[@class='a-link-normal a-color-tertiary']")
+                "//*[@id='wayfinding-breadcrumbs_feature_div']//a[@class='a-link-normal a-color-tertiary']")
             category_name = ' > '.join(
-                    [node.xpath("normalize-space(./text())").extract()[0].encode('utf-8') for node in
-                     category_name_list])
+                [node.xpath("normalize-space(./text())").extract()[0].encode('utf-8') for node in
+                 category_name_list])
         else:
             category_name = 'Unknown'
         product_baseinfo_item["category_name"] = category_name
 
         # in_sale_price
         # "priceblock_ourprice"  priceblock_saleprice
+        in_sale_price_str = ""
         if se.xpath("//*[@id='priceblock_ourprice']/text()"):
-            in_sale_price = float('%.2f' % float(
-                    se.xpath("//*[@id='priceblock_ourprice']/text()").extract()[0].encode('utf-8').replace('$', '')))
-            print("in_sale_price",in_sale_price)
+            in_sale_price_str = se.xpath("//*[@id='priceblock_ourprice']/text()").extract()[0].encode('utf-8')
         elif se.xpath("//*[@id='priceblock_dealprice']/text()"):
-            in_sale_price = float('%.2f' % float(
-                    se.xpath("//*[@id='priceblock_dealprice']/text()").extract()[0].encode('utf-8').replace('$', '')))
+            in_sale_price_str = se.xpath("//*[@id='priceblock_dealprice']/text()").extract()[0].encode('utf-8')
+        elif se.xpath("//*[@id='priceblock_saleprice']/text()"):
+            in_sale_price_str = se.xpath("//*[@id='priceblock_saleprice']/text()").extract()[0].encode('utf-8')
+
+        if in_sale_price_str:
+            in_sale_price_str = re.findall(r'\d+.\d+', in_sale_price_str)
+            if in_sale_price_str:
+                if zone == "JP":
+                    in_sale_price = float(in_sale_price_str[0].replace(',', ''))
+                else:
+                    in_sale_price = float(in_sale_price_str[0].replace(',', '.'))
+            print("in_sale_price", in_sale_price)
         else:
-            in_sale_price = 0.00
+            in_sale_price = 0.0
+
         product_baseinfo_item["in_sale_price"] = in_sale_price
 
         # regularprice_savings
         if se.xpath(
                 "normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text())"):
             regularprice_savingsmessage = se.xpath(
-            "normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text())").extract()[0].replace('$', '').split("(")[0].strip()
-            if len(regularprice_savingsmessage) > 0:
-                    # regularprice_savings = float('%.2f' % float(re.findall(r"\d+\.\d+", regularprice_savingsmessage)[0]))
-                regularprice_savings = float(regularprice_savingsmessage)
+                "normalize-space(//*[@id='regularprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text())").extract()[
+                0]
+            # print(regularprice_savingsmessage)
+            regularprice_savingsmessage = re.findall(r'\d+.\d+',regularprice_savingsmessage)
+            # print(regularprice_savingsmessage)
+            if regularprice_savingsmessage:
+                if zone == "JP":
+                    regularprice_savings = float(regularprice_savingsmessage[0].strip().replace(',', ''))
+                else:
+                    regularprice_savings = float(regularprice_savingsmessage[0].strip().replace(',', '.'))
             else:
                 regularprice_savingsmessage = se.xpath(
-                        "normalize-space(//*[@id='dealprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text())").extract()[
-                        0].replace('$', '').split("(")
-                if regularprice_savingsmessage[0].strip():
-                    regularprice_savings = float(regularprice_savingsmessage[0].strip())
+                    "normalize-space(//*[@id='dealprice_savings']//td[@class='a-span12 a-color-price a-size-base']/text())").extract()[
+                    0]
+                regularprice_savingsmessage = re.findall(r'\d+.\d+', regularprice_savingsmessage)
+                if regularprice_savingsmessage:
+                    regularprice_savings = float(regularprice_savingsmessage[0].strip().replace(',','.'))
                 else:
                     regularprice_savings = 0.00
         else:
@@ -207,7 +225,7 @@ class ProductlistingSpider(scrapy.Spider):
         # review_cnt
         if se.xpath("//*[@id='acrCustomerReviewText']/text()"):
             review_cnt_str = se.xpath("//*[@id='acrCustomerReviewText']/text()").extract()[0].encode(
-                    'utf-8').replace(',', '')
+                'utf-8').replace(',', '')
             review_cnt = int(re.findall(r"\d+", review_cnt_str)[0])
         else:
             review_cnt = 0
@@ -216,24 +234,26 @@ class ProductlistingSpider(scrapy.Spider):
         # review_avg_star
         review_avg_star = 0.0
         if se.xpath("//*[@id='acrPopover']/span[1]/a/i[1]/span/text()"):
-            review_avg_star_str = se.xpath("//*[@id='acrPopover']/span[1]/a/i[1]/span/text()")[0].extract().encode('utf-8')
-            review_avg_star = float(review_avg_star_str.split(' out of ')[0])
+            review_avg_star_str = se.xpath("//*[@id='acrPopover']/span[1]/a/i[1]/span/text()")[0].extract().encode(
+                'utf-8')
+            review_avg_star = float(re.findall(r"\d+.\d+", review_avg_star_str)[0].replace(',','.'))
+            print('review_avg_star',review_avg_star)
         product_baseinfo_item["review_avg_star"] = review_avg_star
 
         # percent_data
         percent_xpath = se.xpath("//*[@id='histogramTable']//tr")
-        print("percent_xpath:",percent_xpath)
+        print("percent_xpath:", percent_xpath)
         if percent_xpath:
-            for i,percent in enumerate(percent_xpath):
-                percent_data = percent.xpath("./td[3]//text()").extract()
-                print(percent_data)
-                key = "percent_{}_star".format(5-i)
-                if percent_data:
-                    star = percent_data[0].decode('utf-8').strip()[:-1]
-                    if star:
-                        product_baseinfo_item[key] = star
-                    else:
-                        product_baseinfo_item[key] = 0
+            for i, percent in enumerate(percent_xpath):
+                percent_data = percent.xpath(".//text()").extract()
+                percent_str = ' '.join([percent.encode('utf-8').strip() for percent in percent_data])
+                print("percent_data:",percent_str)
+                percent_star = re.findall(r'\d+\%',percent_str)
+                key = "percent_{}_star".format(5 - i)
+                print(asin+key+":",percent_star)
+
+                if percent_star:
+                    product_baseinfo_item[key] = percent_star[0][:-1]
                 else:
                     product_baseinfo_item[key] = 0
         else:
@@ -252,10 +272,24 @@ class ProductlistingSpider(scrapy.Spider):
         product_baseinfo_item["cnt_qa"] = cnt_qa
 
         # lowest_price
-        if se.xpath("//*[@id='olp_feature_div']/div/span[1]/a/text()"):
+        if se.xpath("//*[@id='olp_feature_div']/div/span[1]//text()"):
             lowest_price_str = \
-                se.xpath("//*[@id='olp_feature_div']/div/span[1]/a/text()").extract()[0].encode('utf-8').split('from')[-1]
-            lowest_price = float('%.2f' % float(re.findall(r"\d+\.\d+", lowest_price_str)[0]))
+                se.xpath("//*[@id='olp_feature_div']/div/span[1]/a/text()").extract()[0].encode('utf-8').split('from')[
+                    -1]
+            lowest_price_str = \
+                se.xpath("//*[@id='olp_feature_div']/div/span[1]//text()").extract()
+            lowest_price_str = ' '.join([lowest.encode('utf-8') for lowest in lowest_price_str])
+            print('lowest_price_str:',lowest_price_str)
+            lowest_price = re.findall(r"\d+.\d+", lowest_price_str)
+
+            if lowest_price:
+                if zone=="JP":
+                    lowest_price = float(lowest_price[0].replace(',',''))
+                else:
+                    lowest_price = float(lowest_price[0].replace(',', '.'))
+                print('lowest_price', lowest_price)
+            else:
+                lowest_price = 0.00
         else:
             lowest_price = 0.00
         product_baseinfo_item["lowest_price"] = lowest_price
@@ -267,12 +301,12 @@ class ProductlistingSpider(scrapy.Spider):
             offers_url = 'Unknown'
         product_baseinfo_item["offers_url"] = offers_url
 
-        product_baseinfo_item["ref_id"] = ref_id # default value
+        product_baseinfo_item["ref_id"] = ref_id  # default value
 
         yield product_baseinfo_item
 
         # ------- amazon_product_technical_details -------
-        product_details = se.xpath("//*[@id='productDetails_techSpec_section_1']")      #技术细节
+        product_details = se.xpath("//*[@id='productDetails_techSpec_section_1']")  # 技术细节
         if not product_details:
             product_details = se.xpath("//*[@id='technical-data']")
 
@@ -291,7 +325,7 @@ class ProductlistingSpider(scrapy.Spider):
                 yield product_details_item
 
         # ------- amazon_product_category_sales_rank -------
-        detailBullets = se.xpath("//*[@id='productDetails_detailBullets_sections1']")       #产品信息
+        detailBullets = se.xpath("//*[@id='productDetails_detailBullets_sections1']")  # 产品信息
         if detailBullets:
             category_ranks = detailBullets.xpath(".//th[contains(text(), 'Best Sellers Rank')]/../td/span/span")
             for category_rank in category_ranks:
@@ -316,7 +350,7 @@ class ProductlistingSpider(scrapy.Spider):
                 yield category_sales_rank_item
         # ------- amazon_product_descriptions -------
         product_title_item = amazon_product_descriptions()
-        title = se.xpath("//*[@id='productTitle']")         #产品标题
+        title = se.xpath("//*[@id='productTitle']")  # 产品标题
         if title:
             title_str = title.xpath("./text()").extract()[0].encode('utf-8').strip()
             title_md5_str = hashlib.md5(title_str).hexdigest()
@@ -329,7 +363,7 @@ class ProductlistingSpider(scrapy.Spider):
             yield product_title_item
 
         ###################amazon_product_descriptions#############
-        product_bullet_item = amazon_product_descriptions()             #产品描述 特点
+        product_bullet_item = amazon_product_descriptions()  # 产品描述 特点
         bullet = se.xpath("//*[@id='feature-bullets']")
         if bullet:
             bullets = bullet.xpath(".//span[@class='a-list-item']")
@@ -348,7 +382,7 @@ class ProductlistingSpider(scrapy.Spider):
 
         # ------- amazon_product_descriptions -------
         product_description_item = amazon_product_descriptions()
-        description = se.xpath("//*[@id='productDescription']")                 #产品描述
+        description = se.xpath("//*[@id='productDescription']")  # 产品描述
         if description:
             descriptions = description.xpath(".//text()")
             description_str = ''
@@ -365,7 +399,7 @@ class ProductlistingSpider(scrapy.Spider):
             yield product_description_item
 
         # ------- amazon_product_pictures -------
-        image_block = se.xpath("//*[@id='imageBlock_feature_div']")         #产品图片
+        image_block = se.xpath("//*[@id='imageBlock_feature_div']")  # 产品图片
         if image_block:
             images = image_block.xpath(".//img/@src")
             for ind, image in enumerate(images):
@@ -383,7 +417,7 @@ class ProductlistingSpider(scrapy.Spider):
                 yield image_item
 
         # ------- amazon_product_bought_together_list -------
-        bought_together = se.xpath("//*[@id='sims-fbt-form']")      #经常一起买组合套餐
+        bought_together = se.xpath("//*[@id='sims-fbt-form']")  # 经常一起买组合套餐
         if bought_together:
             bought_together_lst = bought_together.xpath(".//li/@data-p13n-asin-metadata")
             also_str_lst = ''
@@ -401,7 +435,7 @@ class ProductlistingSpider(scrapy.Spider):
             yield bought_together_item
 
         # ------- amazon_product_also_bought_list -------
-        #买这个东西的顾客也买了的商品列表
+        # 买这个东西的顾客也买了的商品列表
         also_bought_lst_xpath = se.xpath("//*[@id='purchase-sims-feature']/div/@data-a-carousel-options")
 
         if also_bought_lst_xpath:
@@ -420,8 +454,8 @@ class ProductlistingSpider(scrapy.Spider):
         promotion_list = ''
         promotions_xpath = se.xpath("//*[@id='quickPromoBucketContent']//li")
         for promotion in promotions_xpath:
-            if len(promotion.xpath("./text()").extract())>0:
-                promotion_list += promotion.xpath("./text()").extract()[0].encode('utf-8')  #优惠信息
+            if len(promotion.xpath("./text()").extract()) > 0:
+                promotion_list += promotion.xpath("./text()").extract()[0].encode('utf-8')  # 优惠信息
         md5_promotion = hashlib.md5(promotion_list).hexdigest()
         promotion_item = amazon_product_promotions()
         promotion_item["zone"] = zone
@@ -433,11 +467,11 @@ class ProductlistingSpider(scrapy.Spider):
 
         # ------- amazon_traffic_sponsored_products_1 -------
         sponsored_xpath = se.xpath("//*[@id='sp_detail']/@data-a-carousel-options")
-        if sponsored_xpath.extract() and re.findall('initialSeenAsins(.+)circular',
-                                                    sponsored_xpath.extract()[0].encode('utf-8')):
-            sponsored_lst = re.findall('initialSeenAsins(.+)circular', sponsored_xpath.extract()[0].encode('utf-8'))[
-                0].replace('\\"', '').replace('"', '').replace(
-                ' ', '').replace(':', '')                                              #与本项目有关的商品1
+        sponsoreds = sponsored_xpath.extract()
+        if sponsoreds:
+            sponsoreds = json.loads(sponsoreds[0].encode('utf-8'))
+            sponsored_lst = ','.join([sponsored.encode('utf-8') for sponsored in sponsoreds['initialSeenAsins']])
+
             sponsored_item = amazon_traffic_sponsored_products()
             sponsored_item["zone"] = zone
             sponsored_item["asin"] = asin
@@ -447,19 +481,18 @@ class ProductlistingSpider(scrapy.Spider):
             yield sponsored_item
 
         # ------- amazon_traffic_sponsored_products_2 -------
-        sponsored_xpath = se.xpath("//*[@id='sp_detail2']/@data-a-carousel-options")  #与本项目有关的赞助产品2
+        sponsored_xpath = se.xpath("//*[@id='sp_detail2']/@data-a-carousel-options")  # 与本项目有关的赞助产品2
         sponsoreds = sponsored_xpath.extract()
         if sponsoreds:
-            if re.findall('initialSeenAsins(.+)circular',sponsoreds[0]):
-                sponsored_lst = re.findall('initialSeenAsins(.+)circular',sponsoreds[0])[0].replace('\\"', '').\
-                replace('"', '').replace(' ', '').replace(':', '')
-        sponsored_item = amazon_traffic_sponsored_products()
-        sponsored_item["zone"] = zone
-        sponsored_item["asin"] = asin
-        sponsored_item["type"] = 2
-        sponsored_item["product_list"] = sponsored_lst
-        sponsored_item["ref_id"] = ref_id  # default value
-        yield sponsored_item
+            sponsoreds = json.loads(sponsoreds[0].encode('utf-8'))
+            sponsored_lst = ','.join([sponsored.encode('utf-8') for sponsored in sponsoreds['initialSeenAsins']])
+            sponsored_item = amazon_traffic_sponsored_products()
+            sponsored_item["zone"] = zone
+            sponsored_item["asin"] = asin
+            sponsored_item["type"] = 2
+            sponsored_item["product_list"] = sponsored_lst
+            sponsored_item["ref_id"] = ref_id  # default value
+            yield sponsored_item
 
         # ------- amazon_traffic_buy_other_after_view -------
         buy_other_xpath = se.xpath("//*[@id='view_to_purchase-sims-feature']//a/@href").extract()
@@ -475,7 +508,7 @@ class ProductlistingSpider(scrapy.Spider):
         buy_other_item["zone"] = zone
         buy_other_item["asin"] = asin
 
-        buy_other_item["product_list"] = buy_other_lst    #顾客在看这个商品后购买了哪些商品？ asin,asin,asin,asin
+        buy_other_item["product_list"] = buy_other_lst  # 顾客在看这个商品后购买了哪些商品？ asin,asin,asin,asin
         buy_other_item["ref_id"] = ref_id
         yield buy_other_item
 
@@ -491,7 +524,6 @@ class ProductlistingSpider(scrapy.Spider):
         similar_item_item = amazon_traffic_similar_items()
         similar_item_item["zone"] = zone
         similar_item_item["asin"] = asin
-        similar_item_item["product_list"] = similar_item_lst   #类似商品 asin,asin,asin,asin
+        similar_item_item["product_list"] = similar_item_lst  # 类似商品 asin,asin,asin,asin
         similar_item_item["ref_id"] = ref_id  # default value
         yield similar_item_item
-

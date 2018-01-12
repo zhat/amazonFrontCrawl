@@ -98,6 +98,33 @@ class amazon_product_baseinfo(scrapy.Item):
     create_date     = scrapy.Field()
     update_date     = scrapy.Field()
 
+# ############################product listing############################
+class amazon_product_base(scrapy.Item):
+    zone            = scrapy.Field()
+    asin            = scrapy.Field()
+    ref_id          = scrapy.Field()
+    seller_name     = scrapy.Field()
+    seller_url      = scrapy.Field()
+    brand           = scrapy.Field()
+    brand_url       = scrapy.Field()
+    is_fba          = scrapy.Field()
+    stock_situation = scrapy.Field()
+    category_name   = scrapy.Field()
+    original_price  = scrapy.Field()
+    in_sale_price   = scrapy.Field()
+    review_cnt      = scrapy.Field()
+    review_avg_star = scrapy.Field()
+    percent_5_star  = scrapy.Field()
+    percent_4_star  = scrapy.Field()
+    percent_3_star  = scrapy.Field()
+    percent_2_star  = scrapy.Field()
+    percent_1_star  = scrapy.Field()
+    cnt_qa          = scrapy.Field()
+    offers_url      = scrapy.Field()
+    lowest_price    = scrapy.Field()
+    create_date     = scrapy.Field()
+    update_date     = scrapy.Field()
+
 
 class amazon_product_review_percent_info(scrapy.Item):
     asin              = scrapy.Field()

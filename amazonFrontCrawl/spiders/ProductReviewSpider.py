@@ -31,14 +31,15 @@ class ProductReviewSpider(scrapy.Spider):
         )
         cursor = self.conn.cursor()
         cursor.execute(
-            'SELECT distinct url,asin,ref_id FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "1" ;'
+            'SELECT distinct asin,ref_id,zone FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "1" ;'
         )
 
         rows = cursor.fetchall()
         for row in rows:
-            review_url = self.product_url_to_review_url(row[0])
+            asin,ref_id,zone = row
+            review_url = self.get_review_url(zone,asin)
             print(review_url)
-            yield Request(review_url, callback=self.parse, meta={'ref_id': row[2]})
+            yield Request(review_url, callback=self.parse, meta={'asin':asin,'page':1,'zone':zone,'ref_id': ref_id})
 
     def parse(self, response):
         logging.info("ProductReviewSpider parse start .....")
@@ -48,18 +49,10 @@ class ProductReviewSpider(scrapy.Spider):
         url = response.request.url
 
         ref_id = response.meta['ref_id']
-        domain = get_tld(url)
-        zone = self.domain_to_zone(domain)
+        zone = response.meta['zone']
+        asin = response.meta['asin']
+        page = response.meta['page']
 
-        asin_list = re.findall(r"product-reviews/(.+?)/ref=cm_cr_getr_d_paging_btm_next_(.+?)\?ie=UTF8", str(url))
-        print(asin_list)
-        asin = asin_list[0][0]
-        page = int(asin_list[0][1])
-        print(asin)
-        print(page)
-        # "customer_review-R18L9UG9B1VDSR"
-        # // div[contains( @ id, '100_dealView_')]
-        print("review")
         review_list = se.xpath("//div[contains(@id,'customer_review-')]")
         # print(len(review_list))
         # print("review_list:",review_list)
@@ -72,8 +65,12 @@ class ProductReviewSpider(scrapy.Spider):
             if page == 1:
                 print("There is no comment on this commodity...")
             else:
-                yield Request(url, callback=self.parse, meta={'ref_id': ref_id}, dont_filter=True)
-        result = ""
+                yield Request(url, callback=self.parse,
+                              meta={'asin':asin,'page':page,'zone':zone,'ref_id': ref_id},
+                              dont_filter=True)
+
+        # set flag result, if there data in the database,stop spider ,Temporarily unused
+        result = False
         for review in review_list:
 
             review_item = amazon_product_reviews()
@@ -190,16 +187,17 @@ class ProductReviewSpider(scrapy.Spider):
 
         # //*[@id="cm_cr-pagination_bar"]/ul/li[9]/a
 
+        # next page if has pagn_next_link
         if pagn_next_link_yes and not result:
             next_url = url.replace("cm_cr_getr_d_paging_btm_next_{}".format(page),"cm_cr_getr_d_paging_btm_next_{}".format(page+1))
             next_url = next_url.replace("pageNumber={}".format(page),"pageNumber={}".format(page+1))
             print("next_url:",next_url)
-            yield Request(next_url, callback=self.parse, meta={'ref_id': ref_id})
+            yield Request(next_url, callback=self.parse, meta={'asin':asin,'page':page+1,'zone':zone,'ref_id': ref_id})
 
     def zone_to_domain(self, zone):
         switcher = {
             'US': 'https://www.amazon.com',
-            'UK': 'https://www.amazon.com.uk',
+            'UK': 'https://www.amazon.co.uk',
             'DE': 'https://www.amazon.de',
             'JP': 'https://www.amazon.jp',
             'CA': 'https://www.amazon.ca',
@@ -209,27 +207,9 @@ class ProductReviewSpider(scrapy.Spider):
         }
         return switcher.get(zone, 'error zone')
 
-
-    def domain_to_zone(self, domain):
-        switcher = {
-            'amazon.com': 'US',
-            'com.uk': 'UK',
-            'amazon.de': 'DE',
-            'amazon.jp': 'JP',
-            'amazon.ca': 'CA',
-            'amazon.es': 'ES',
-            'amazon.it': 'IT',
-            'amazon.fr': 'FR',
-
-        }
-        return switcher.get(domain, 'error domain')
-
-    def product_url_to_review_url(self, product_url, type=''):
+    def get_review_url(self, zone, asin, type=''):
         # asin = str(product_url).replace('http://www.amazon.com/dp/', '')
-        asin = str(product_url).split('/')[-1]
 
-        domain = get_tld(product_url)
-        zone = self.domain_to_zone(domain)
         domain_str = self.zone_to_domain(zone)
         if type == 'Top':
             review_url = '%s/product-reviews/%s/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=all_reviews&pageNumber=1' % (domain_str, asin)

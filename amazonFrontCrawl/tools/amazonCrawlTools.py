@@ -21,13 +21,12 @@ class StringUtilTool(object):
         switcher = {
             'US': 'https://www.amazon.com',
             'UK': 'https://www.amazon.com.uk',
-            'DE': 'https://www.amazon.amazon.de',
+            'DE': 'https://www.amazon.de',
             'JP': 'https://www.amazon.jp',
             'CA': 'https://www.amazon.ca',
             'ES': 'https://www.amazon.es',
             'IT': 'https://www.amazon.it',
             'FR': 'https://www.amazon.fr',
-
         }
         return switcher.get(zone, 'error zone')
 
