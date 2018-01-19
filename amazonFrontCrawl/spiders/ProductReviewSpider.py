@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import scrapy
 import logging
@@ -30,7 +31,7 @@ class ProductReviewSpider(scrapy.Spider):
         )
         cursor = self.conn.cursor()
         cursor.execute(
-            'SELECT distinct asin,ref_id,zone FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "1" ;'
+            'SELECT distinct asin,ref_id,zone FROM '+settings.AMAZON_REF_PRODUCT_LIST+' where STATUS = "1";'
         )
 
         rows = cursor.fetchall()
@@ -102,6 +103,130 @@ class ProductReviewSpider(scrapy.Spider):
             review_date_str = review.xpath(".//span[@data-hook='review-date']/text()").extract()[0].encode('utf-8').replace('on ', '')
             if zone.upper() == 'US':
                 review_item["review_date"] = datetime.strftime(datetime.strptime(review_date_str, '%B %d, %Y'), '%Y-%m-%d')
+            elif zone.upper() == 'JP':
+                review_item["review_date"] = datetime.strftime(datetime.strptime(review_date_str, u'%Y年%m月%d日'),
+                                                               '%Y-%m-%d')
+            elif zone.upper() == 'CA':
+                review_item["review_date"] = datetime.strftime(datetime.strptime(review_date_str, '%B %d, %Y'),
+                                                               '%Y-%m-%d')
+            elif zone.upper() == 'DE':
+                print(review_date_str)
+                month_dict = {"Januar": 1,
+                              "Februar": 2,
+                              "März": 3,
+                              "April": 4,
+                              "Mai": 5,
+                              "Juni": 6,
+                              "Juli": 7,
+                              "August": 8,
+                              "September": 9,
+                              "Oktober": 10,
+                              "November": 11,
+                              "Dezember": 12
+                              }
+                result = re.findall(r"(\d+)\.\s+(.+)\s+(\d+)", review_date_str)
+                if result:
+                    year = result[0][2]
+                    day = result[0][0]
+                    month_str = result[0][1].encode('utf-8')
+                    month = month_dict.get(month_str, 0)
+                    if month:
+                        date = "{}-{:02d}-{:02d}".format(year, month, int(day))
+                        print(date)
+                    else:
+                        date = review_date_str
+                else:
+                    date = review_date_str
+                review_item["review_date"] = date
+                print(review_item["review_date"])
+            elif zone.upper() == 'UK':
+                review_item["review_date"] = datetime.strftime(datetime.strptime(review_date_str, '%d %B %Y'),
+                                                               '%Y-%m-%d')
+            elif zone.upper() == 'FR':
+
+                month_dict = {"janvier": 1,
+                              "février": 2,
+                              "mars": 3,
+                              "avril": 4,
+                              "mai": 5,
+                              "juin": 6,
+                              "juillet": 7,
+                              "août": 8,
+                              "septembre": 9,
+                              "octobre": 10,
+                              "novembre": 11,
+                              "décembre": 12
+                              }
+                result = re.findall(r"(\d+)\s+(.+)\s+(\d+)", review_date_str)
+                if result:
+                    year = result[0][2]
+                    day = result[0][0]
+                    month_str = result[0][1].encode('utf-8')
+                    month = month_dict.get(month_str, 0)
+                    if month:
+                        date = "{}-{:02d}-{:02d}".format(year, month, int(day))
+                        print(date)
+                    else:
+                        date = review_date_str
+                else:
+                    date = review_date_str
+                review_item["review_date"] = date
+            elif zone.upper() == "ES":
+                month_dict = {"enero": 1,
+                              "febrero": 2,
+                              "marzo": 3,
+                              "abril": 4,
+                              "mayo": 5,
+                              "junio": 6,
+                              "julio": 7,
+                              "agosto": 8,
+                              "septiembre": 9,
+                              "octubre": 10,
+                              "noviembre": 11,
+                              "diciembre": 12
+                              }
+                result = re.findall(r"(\d+)\s+de\s+([a-z]+)\s+de\s+(\d+)", review_date_str)
+                if result:
+                    year = result[0][2]
+                    day = result[0][0]
+                    month_str = result[0][1]
+                    month = month_dict.get(month_str,0)
+                    if month:
+                        date = "{}-{:02d}-{:02d}".format(year,month,int(day))
+                    else:
+                        date = review_date_str
+                else:
+                    date = review_date_str
+                review_item["review_date"] = date
+
+            elif zone.upper() == 'IT':
+                month_dict = {"gennaio": 1,
+                              "febbraio": 2,
+                              "marzo": 3,
+                              "aprile": 4,
+                              "maggio": 5,
+                              "giugno": 6,
+                              "luglio": 7,
+                              "agosto": 8,
+                              "settembre": 9,
+                              "ottobre": 10,
+                              "novembre": 11,
+                              "dicembre": 12
+                              }
+                result = re.findall(r"(\d+)\s+([a-z]+)\s+(\d+)",review_date_str)
+                if result:
+                    year = result[0][2]
+                    day = result[0][0]
+                    month_str = result[0][1]
+                    month = month_dict.get(month_str,0)
+                    if month:
+                        date = "{}-{:02d}-{:02d}".format(year,month,int(day))
+                    else:
+                        date = review_date_str
+                else:
+                    date = review_date_str
+                review_item["review_date"] = date
+
             else:
                 review_item["review_date"] = review_date_str
 
