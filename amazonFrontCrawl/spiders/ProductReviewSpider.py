@@ -91,8 +91,13 @@ class ProductReviewSpider(scrapy.Spider):
             review_item["review_id"] = review_id
 
             review_item["review_url"] = review.xpath(".//a[@data-hook='review-title']/@href").extract()[0].encode('utf-8')
-            review_star = review.xpath(".//i[@data-hook='review-star-rating']/span/text()").extract()[0].encode('utf-8')
-            review_star = review_star.replace(" out of 5 stars","")
+            review_star_str = review.xpath(".//i[@data-hook='review-star-rating']/span/text()").extract()[0].encode('utf-8')
+            review_star = re.findall(r'\d.0',review_star_str)
+            if review_star:
+                review_star = review_star[0].replace(',','.')
+            else:
+                review_star = review_star_str
+            print(review_star)
             review_item["review_star"] = review_star
             review_item["review_title"] = review.xpath(".//a[@data-hook='review-title']/text()").extract()[0].encode('utf-8')
             # print(review_item["review_title"])
