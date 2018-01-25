@@ -605,10 +605,10 @@ class ProductListingPipeline(object):
         # print item['name']
         # dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        sql = "insert into amazon_product_category_sales_rank(zone, asin, ref_id, category_name, sales_rank) " \
-              "values(%s,%s,%s,%s,%s)"
+        sql = "insert into amazon_product_category_sales_rank(zone, asin, ref_id, category_name, sales_rank,create_date) " \
+              "values(%s,%s,%s,%s,%s,%s)"
         params = (
-            item["zone"], item["asin"], item["ref_id"], item["category_name"], item["sales_rank"]
+            item["zone"], item["asin"], item["ref_id"], item["category_name"], item["sales_rank"],datetime.datetime.now()
         )
         print("insert data to amazon_product_category_sales_rank ......%s") % item["asin"]
         logging.info("insert data to amazon_product_category_sales_rank ......")
@@ -636,16 +636,18 @@ class ProductListingPipeline(object):
     def _amazon_product_baseinfo_insert(self, tx, item):
         # print item['name']
         # dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        datetime.datetime.now()
 
         sql = "insert into amazon_product_baseinfo(zone, asin, ref_id, seller_name, seller_url, brand, brand_url, " \
               "is_fba, stock_situation, category_name, original_price, in_sale_price, review_cnt, review_avg_star, " \
-              "percent_5_star, percent_4_star, percent_3_star, percent_2_star, percent_1_star, cnt_qa, offers_url, lowest_price) " \
-              "values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+              "percent_5_star, percent_4_star, percent_3_star, percent_2_star, percent_1_star, cnt_qa, offers_url, lowest_price,create_date) " \
+              "values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         params = (
             item["zone"], item["asin"], item["ref_id"], item["seller_name"], item["seller_url"], item["brand"], item["brand_url"],
             item["is_fba"], item["stock_situation"], item["category_name"], item["original_price"], item["in_sale_price"], item["review_cnt"], item["review_avg_star"],
-            item["percent_5_star"], item["percent_4_star"], item["percent_3_star"], item["percent_2_star"], item["percent_1_star"], item["cnt_qa"], item["offers_url"], item["lowest_price"]
-            )
+            item["percent_5_star"], item["percent_4_star"], item["percent_3_star"], item["percent_2_star"], item["percent_1_star"], item["cnt_qa"],
+            item["offers_url"], item["lowest_price"],datetime.datetime.now())
+
         print("insert data to amazon_product_baseinfo ......%s") % item["asin"]
         logging.info("insert data to amazon_product_baseinfo ......")
         tx.execute(sql, params)
