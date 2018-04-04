@@ -359,3 +359,17 @@ class FeedbackItem(scrapy.Item):
 
 class TodayDealItem(scrapy.Item):
     deals = scrapy.Field()
+
+# date抓取日期 关键字 位置(top left text) 页码 序号 asin is_sponsored create_time update_time
+class AdvertItem(scrapy.Item):
+    date = scrapy.Field()
+    zone = scrapy.Field()
+    keyword = scrapy.Field()
+    position = scrapy.Field()
+    page = scrapy.Field()
+    serial_num = scrapy.Field()
+    asin = scrapy.Field()
+    is_sponsored = scrapy.Field()
+    create_time = scrapy.Field()
+    update_time = scrapy.Field()
+

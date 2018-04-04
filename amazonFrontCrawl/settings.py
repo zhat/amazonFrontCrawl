@@ -187,6 +187,7 @@ DOWNLOADER_MIDDLEWARES = {
         'amazonFrontCrawl.middlewares.RandomUserAgent.RandomUserAgentMiddleware': 300,
         'amazonFrontCrawl.middlewares.RandomProxy.RandomProxyMiddleware': 400,
         'amazonFrontCrawl.middlewares.JSMiddleware.PhantomJSMiddleware' : 543,
+        'amazonFrontCrawl.middlewares.AdvertMiddleware.AdvertMiddleware' : 550,
         # 'amazonFrontCrawl.middlewares.JavaScriptMiddleware.JavaScriptMiddleware' : 543,
     # 'scrapy_splash.SplashCookiesMiddleware': 723,
     # 'scrapy_splash.SplashMiddleware': 725,
